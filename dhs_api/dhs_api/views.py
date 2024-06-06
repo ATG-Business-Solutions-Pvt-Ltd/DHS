@@ -7,7 +7,7 @@ from urllib.error import HTTPError
 from urllib.parse import urlencode
 from urllib.request import urlopen,Request
 import logging
-logger = logging.getLogger(__name__)
+# logger = logging.getLogger(__name__)
 # from drf_spectacular.utils import extend_schema, OpenApiTypes, OpenApiExample, OpenApiRequestBody
 # from drf_spectacular.types import OpenApiTypes
 
@@ -15,11 +15,11 @@ logger = logging.getLogger(__name__)
 @api_view(http_method_names=["POST"])
 def log_ticket(request):
     access_token=get_refresh_token()
-    logger.info(f'Generating new ticket for provided information.')
-    logger.info(f'{request.data}')
+    # logger.info(f'Generating new ticket for provided information.')
+    # logger.info(f'{request.data}')
     res=create_request(access_token,request.data)
     res=json.loads(res)
-    logger.info(f'Ticket has been generated with display Id {res["request"]["display_id"]}')
+    # logger.info(f'Ticket has been generated with display Id {res["request"]["display_id"]}')
     return Response(data=res,status=status.HTTP_200_OK)
   
 # @extend_schema(
@@ -47,14 +47,14 @@ def log_ticket(request):
 @api_view(http_method_names=["POST"])
 def log_ticketV2(request):
     access_token=get_refresh_token()
-    logger.info(f'Generating new ticket for provided information.')
-    logger.info(f'{request.data}')
+    # logger.info(f'Generating new ticket for provided information.')
+    # logger.info(f'{request.data}')
     res=create_request_v2(access_token,request.data)
     res=json.loads(res)
-    if "request" in res:
-      logger.info(f'Ticket has been generated with display Id {res["request"]["display_id"]}')
-    else:
-      logger.info(f'Failed to generate ticket {res} ')
+    # if "request" in res:
+    #   # logger.info(f'Ticket has been generated with display Id {res["request"]["display_id"]}')
+    # else:
+    #   logger.info(f'Failed to generate ticket {res} ')
     return Response(data=res,status=status.HTTP_200_OK)
   
 
@@ -68,7 +68,7 @@ def get_refresh_token():
     "redirect_uri" : "https://accounts.zoho.in" }          
     response = requests.post(url,data=data,verify=False)
     python_dict = json.loads(response.text)
-    logger.info(f'Authentication is successful')
+    # logger.info(f'Authentication is successful')
     return python_dict.get("access_token")
 
 def create_request(access_token,data):
@@ -112,11 +112,11 @@ def create_request(access_token,data):
     try:
         with urlopen(httprequest) as response:
             res=response.read().decode()
-            logger.info(f'Ticket has been generated -> {res}')
+            # logger.info(f'Ticket has been generated -> {res}')
             return res
     except HTTPError as e:
         res=e.read().decode()
-        logger.error(f'Failed to generate Ticket -> {res}')
+        # logger.error(f'Failed to generate Ticket -> {res}')
         return res
       
       
@@ -165,10 +165,10 @@ def create_request_v2(access_token,data):
     try:
         with urlopen(httprequest) as response:
             res=response.read().decode()
-            logger.info(f'Ticket has been generated -> {res}')
+            # logger.info(f'Ticket has been generated -> {res}')
             return res
     except HTTPError as e:
         res=e.read().decode()
-        logger.error(f'Failed to generate Ticket -> {res}')
+        # logger.error(f'Failed to generate Ticket -> {res}')
         return res
       
