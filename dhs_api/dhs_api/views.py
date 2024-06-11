@@ -7,6 +7,13 @@ from urllib.error import HTTPError
 from urllib.parse import urlencode
 from urllib.request import urlopen,Request
 import logging
+import pandas as pd
+from datetime import datetime
+
+current_time = datetime.now()
+
+from django.utils import timezone
+import os
 # logger = logging.getLogger(__name__)
 # from drf_spectacular.utils import extend_schema, OpenApiTypes, OpenApiExample, OpenApiRequestBody
 # from drf_spectacular.types import OpenApiTypes
@@ -57,6 +64,35 @@ def log_ticketV2(request):
     #   logger.info(f'Failed to generate ticket {res} ')
     return Response(data=res,status=status.HTTP_200_OK)
   
+@api_view(http_method_names=["POST"])
+def log_reviews(request):
+  
+    try:
+        data={
+          'Email': request.data.get("email"),
+          'Review':request.data.get("reviews"),
+          'Rating':request.data.get("ratings"),
+          'Created At':datetime.now().date()
+        }
+        # print(data)
+        write_reviews(data)
+        return Response(data=data,status=status.HTTP_200_OK)
+    except Exception as e:
+            # print(e)
+            return Response(data=e,status=status.HTTP_400_BAD_REQUEST)
+ 
+
+def write_reviews(data): 
+  file_path="reviews.xlsx"
+  if os.path.exists(file_path):
+        df = pd.read_excel(file_path)  
+  else:
+        df = pd.DataFrame(columns=['Email', 'Review', 'Rating']) 
+        
+  new_entry=pd.DataFrame([data])
+  df = pd.concat([df, new_entry], ignore_index=True)
+  # print(df)
+  df.to_excel(file_path,index=False, engine='openpyxl')
 
 def get_refresh_token():
     url = "https://accounts.zoho.in/oauth/v2/token"
