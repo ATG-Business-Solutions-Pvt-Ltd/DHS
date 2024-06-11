@@ -112,8 +112,14 @@ def write_reviews(data):
   df = pd.concat([df, new_entry], ignore_index=True)
   # print(df)
   df.to_excel(file_path,index=False, engine='openpyxl')
+  # send_email_with_attachment(
+  #               to_email=['sheetal.warbhuvan@aeriestechnology.com','shreeshalini.r@aeriestechnology.com','asish.barik@aeriestechnology.com','nirmal.nathani@aeriestechnology.com'],
+  #               subject='New Review Logged',
+  #               body='A new review has been logged. Please find the attached Excel file.',
+  #               file_path=file_path
+  #           )
   send_email_with_attachment(
-                to_email=['sheetal.warbhuvan@aeriestechnology.com','shreeshalini.r@aeriestechnology.com','asish.barik@aeriestechnology.com','nirmal.nathani@aeriestechnology.com'],
+                to_email=['sheetal.warbhuvan@aeriestechnology.com','asish.barik@aeriestechnology.com',],
                 subject='New Review Logged',
                 body='A new review has been logged. Please find the attached Excel file.',
                 file_path=file_path
