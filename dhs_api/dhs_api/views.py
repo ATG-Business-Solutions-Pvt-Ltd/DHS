@@ -17,7 +17,25 @@ import os
 # logger = logging.getLogger(__name__)
 # from drf_spectacular.utils import extend_schema, OpenApiTypes, OpenApiExample, OpenApiRequestBody
 # from drf_spectacular.types import OpenApiTypes
+from django.core.mail import EmailMessage
+from django.conf import settings
+import smtplib
 
+def send_email_with_attachment(to_email, subject, body, file_path):
+  # send_failure = []
+  # send_success = []
+  for recipient in to_email:
+    try:
+        email = EmailMessage(
+            subject,
+            body,
+            settings.EMAIL_HOST_USER,
+            [recipient]
+        )
+        email.attach_file(file_path)
+        email.send()
+    except Exception as e:  
+        raise ValueError(f"Exception occured: {str(e)}")
 
 @api_view(http_method_names=["POST"])
 def log_ticket(request):
@@ -79,7 +97,8 @@ def log_reviews(request):
         return Response(data=data,status=status.HTTP_200_OK)
     except Exception as e:
             # print(e)
-            return Response(data=e,status=status.HTTP_400_BAD_REQUEST)
+            data={"error":str(e)}
+            return Response(data=data,status=status.HTTP_400_BAD_REQUEST)
  
 
 def write_reviews(data): 
@@ -93,6 +112,12 @@ def write_reviews(data):
   df = pd.concat([df, new_entry], ignore_index=True)
   # print(df)
   df.to_excel(file_path,index=False, engine='openpyxl')
+  send_email_with_attachment(
+                to_email=['sheetal.warbhuvan@aeriestechnology.com','shreeshalini.r@aeriestechnology.com','asish.barik@aeriestechnology.com','nirmal.nathani@aeriestechnology.com'],
+                subject='New Review Logged',
+                body='A new review has been logged. Please find the attached Excel file.',
+                file_path=file_path
+            )
 
 def get_refresh_token():
     url = "https://accounts.zoho.in/oauth/v2/token"
