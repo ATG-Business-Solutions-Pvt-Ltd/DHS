@@ -46,29 +46,7 @@ def log_ticket(request):
     res=json.loads(res)
     # logger.info(f'Ticket has been generated with display Id {res["request"]["display_id"]}')
     return Response(data=res,status=status.HTTP_200_OK)
-  
-# @extend_schema(
-#     methods=['POST'],
-#     request=OpenApiRequestBody(
-#         content={
-#             'multipart/form-data': {
-#                 'schema': {
-#                     'type': 'object',
-#                     'properties': {
-#                         'subject': {'type': 'string', 'description': 'Subject'},
-#                         'description': {'type': 'string', 'description': 'Description'},
-#                         'email': {'type': 'string', 'description': 'email'}
-#                     },
-#                     'required': ['subject', 'description', 'email']
-#                 }
-#             }
-#         }
-#     ),
-#     responses={
-#         200: OpenApiTypes.OBJECT,
-#         400: OpenApiTypes.OBJECT
-#     }
-# )
+
 @api_view(http_method_names=["POST"])
 def log_ticketV2(request):
     access_token=get_refresh_token()
@@ -119,13 +97,7 @@ def write_reviews(data):
                 body='A new review has been logged. Please find the attached Excel file.',
                 file_path=file_path
             )
-  # send_email_with_attachment(
-  #               to_email=['sheetal.warbhuvan@aeriestechnology.com','asish.barik@aeriestechnology.com',],
-  #               subject='New Review Logged',
-  #               body='A new review has been logged. Please find the attached Excel file.',
-  #               file_path=file_path
-  #           )
-
+  
 def get_refresh_token():
     url = "https://accounts.zoho.in/oauth/v2/token"
     data ={"Content-Type": "application/x-www-form-urlencoded",
