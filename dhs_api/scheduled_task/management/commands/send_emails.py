@@ -33,10 +33,13 @@ class Command(BaseCommand):
         history_buffer.seek(0)
         # Create email
         email = EmailMessage(
-            subject='Feedback Summary with Attachment',
-            body='Please find attached the feedback summary.',
+            subject='DHS-bot feedback and Summary ',
+            body='Please find attached the feedbackn and summary of bot.',
             from_email=settings.EMAIL_HOST_USER,
-            to=['sheetal.warbhuvan@aeriestechnology.com'],  # Replace with the recipient's email
+            #['sheetal.warbhuvan@aeriestechnology.com','shreeshalini.r@aeriestechnology.com',
+                         # 'asish.barik@aeriestechnology.com','nirmal.nathani@aeriestechnology.com','neha.patil@aeriestechnology.com'],
+            to=['sheetal.warbhuvan@aeriestechnology.com','shreeshalini.r@aeriestechnology.com',
+                          'asish.barik@aeriestechnology.com','nirmal.nathani@aeriestechnology.com',],  # Replace with the recipient's email
         )
 
         # Attach the Excel file
