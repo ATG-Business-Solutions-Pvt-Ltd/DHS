@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 class FeedbackModel(models.Model):
+    id = models.AutoField(primary_key=True)
     user_email = models.CharField(max_length=100)
     ratings=models.IntegerField(null=True,default=0,validators=[MinValueValidator(0),MaxValueValidator(5)])
     reviews = models.TextField()
@@ -14,6 +15,7 @@ class FeedbackModel(models.Model):
         return self.user_email
     
 class ConversationHistoryModel(models.Model):
+    id = models.AutoField(primary_key=True)
     user_email = models.CharField(max_length=100)
     user_input=models.TextField()
     bot_response=models.TextField()
