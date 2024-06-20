@@ -38,13 +38,16 @@ class GetFeedback(APIView):
     
 class ConversationHistory(APIView):
     def post(self,request):
-        data=modify_data(request.data)
-        # if isinstance(request.data, list):
-        serializer = ChatHistorySerializer(data=data, many=True)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        try:
+            data=modify_data(request.data)
+            # if isinstance(request.data, list):
+            serializer = ChatHistorySerializer(data=data, many=True)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
     def get(self,request):
         chat_history=ConversationHistoryModel.objects.all()
         serializer=ChatHistorySerializer(chat_history,many=True)
@@ -111,8 +114,6 @@ def modify_data(data):
         history=conversation
         history["user_email"]=data.get('user_email')
         reslst.append(history)
-        print(history)
-        print("****")
         
     return reslst
     
