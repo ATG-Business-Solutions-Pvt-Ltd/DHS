@@ -42,8 +42,8 @@ class Command(BaseCommand):
             from_email=settings.EMAIL_HOST_USER,
             #['sheetal.warbhuvan@aeriestechnology.com','shreeshalini.r@aeriestechnology.com',
                          # 'asish.barik@aeriestechnology.com','nirmal.nathani@aeriestechnology.com','neha.patil@aeriestechnology.com'],
-            to=['sheetal.warbhuvan@aeriestechnology.com','shreeshalini.r@aeriestechnology.com',
-                          'asish.barik@aeriestechnology.com','nirmal.nathani@aeriestechnology.com',], 
+             to=['sheetal.warbhuvan@aeriestechnology.com','shreeshalini.r@aeriestechnology.com',
+                          'asish.barik@aeriestechnology.com','nirmal.nathani@aeriestechnology.com','neha.patil@aeriestechnology.com']
             # to=['sheetal.warbhuvan@aeriestechnology.com']# Replace with the recipient's email
         )
         if not feedback_data:
