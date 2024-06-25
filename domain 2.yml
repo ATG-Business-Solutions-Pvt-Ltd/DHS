@@ -1,0 +1,495 @@
+version: "3.1"
+
+intents:
+  - reset_email_password
+  - unblock_email
+  - return_equipment
+  - email_password_criteria
+  - retrieve_bitlocker_key
+  - it_service_contact
+  - send_email_attachment
+  - setup_email_mfa
+  - teams_outlook_issue
+  - configure_email_iphone
+  - access_encrypted_email
+  - resolve_logon_refused_issue
+  - missing_dictation_playback_buttons
+  - printer_not_working
+  - endpoint_security_dos_and_donts
+  - sso_login_issue
+  - installing_esone
+  - foot_pedal_not_working
+  - audio_not_working
+  - emdat_login_issue
+  - change_date_format
+  - reset_dhs_email_password
+  - dhs_email_password_expired
+  - webclient_account_locked
+  - change_password_instructions
+  - convert_esp_to_auto_text
+  - troubleshoot_font_issues
+  - screen_sharing_not_working_mac
+  - inscribe_6_script_error_qa_feedback
+  - add_external_user_in_ms_teams_as_guest
+  - use_8x8_phone_system_in_ms_teams
+  - create_patient_displays_in_inscribe
+  - error_logging_into_shadow_print
+  - inquiry_freezes_as_soon_as_logged_in
+  - keyboard_shortcut_not_working_in_inscribe
+  - add_executive_calendar_to_outlook
+  - change_esone_platform_password
+  - cannot_log_into_inscribe
+  - use_autotext_in_comment_box
+  - remove_misspelled_word_from_dictionary
+  - backup_and_restore_autotext_in_inscribe
+  - submit_contract_worker_email_id_request
+  - submit_shared_email_account_request
+  - submit_ms_teams_channel_request
+  - submit_sharepoint_portal_request
+  - submit_distribution_list_request
+  - unable_login_to_hrms
+  - hrms_password_not_working
+  - fiesa_not_working
+  - spark_hanging_or_freezes
+  - password_not_accepting_in_world_client
+  - microsoft_authenticator_not_working
+  - install_or_upgrade_escriptionone_version
+  - system_requirement_for_escription_platform
+  - nlu_fallback
+  
+
+actions:
+  - action_default_fallback
+  
+
+entities:
+  - email
+  - equipment
+  - bitlocker_key
+
+responses:
+  utter_reset_email_password:
+  - text: |
+       Please click on this  https://shorturl.at/glKST  to reset the password through the self-service password reset portal. Use the MFA authentication method. 
+       Also, click on this  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB001.pdf  and follow the step-by-step instructions with screenshots provided in the document available at that link. 
+       For any assistance, please contact the IT Support Centre.
+      
+  utter_unblock_email:
+  - text: |
+        To unblock an email, click on this  https://shorturl.at/hopvB  and refer to the instructions provided in the Mimecast Personal Portal Job Aid. 
+        Additionally, click on this https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB002.pdf  and follow the step-by-step instructions with screenshots mentioned in the document available at that link. 
+        For any assistance, please contact IT Support.
+
+
+  utter_return_equipment:
+  - text: |
+        To initiate the equipment return process, open this https://shorturl.at/sxBO7  and submit a service request for equipment return. We offer multiple convenient return options:
+        - FedEx drop-off: Receive a QR code and a list of nearby FedEx locations via email. Take the equipment and QR code to the selected FedEx location; no need for boxes or packing material. FedEx will scan the code, collect, package, and ship the equipment back at no cost.
+        - FedEx home pickup: If you have suitable packing material, we can email shipping labels. Schedule a FedEx pickup after securely packaging the equipment at your address.
+        - In-person return: If you're near one of our physical offices, return the equipment in person. 
+        For further assistance, contact IT Support.
+
+
+  utter_email_password_criteria:
+  - text: |
+        The password criteria for DHS or Deliver Health email are outlined below:
+        - Be at least 14 characters long.
+        - Include uppercase characters  A-Z .
+        - Include lowercase characters  a-z .
+        - Include numerical characters  0-9 .
+        - Include special characters  !, $, #, %, etc. .
+        - Avoid using words from any dictionary in any language, any DHS-specific term, any derivation of the user's login ID, or any generally known name associated with the user  e.g., spouse's name, street name, pet's name .
+        - All passwords must be changed every ninety  90  days.
+        - Maximum unsuccessful logon attempts before system lockout: five attempts.
+        - Accounts locked out for logon failures must remain locked for a minimum of thirty  30  minutes or until the administrator re-enables the user ID.
+        - Systems/applications must be set to log the user off or lock the screen, requiring the user's credentials to regain access after a maximum idle time of fifteen  15  minutes.
+        - Users cannot reuse their last 24 passwords.
+
+  utter_retrieve_bitlocker_key:
+  - text: To obtain your BitLocker Recovery Key, click on this https://aka.ms/aadrecoverykey . Sign in to your DHS Corporate email account to access and retrieve the necessary key.
+
+  utter_it_service_contact:
+  - text: |
+        For 0-24 Hours, contact DHS IT Support Centre via:
+        - Email: IT.SupportCenter@deliverhealth.com
+        - Phone: +1-608-716-3114.
+        For 24-48 Hours, contact Mr. Amit Sundrial – Manager IT Support via:
+        - Phone: +91-9845197194
+        - Email: amit.sundrial@Deliverhealth.com.
+        For >48 Hours, contact Mr. Ravindra MG - Head IT Operations India via:
+        - Email: Ravindra.mg@Deliverhealth.com
+        - Phone: +91-9845734255.
+
+  utter_send_email_attachment:
+  - text: |
+        To send an email with an attachment, follow these steps:
+        1. Ensure the attachment size does not exceed 25MB.
+        2. If the size is within limits, try closing and reopening your email client.
+        3. If the issue persists, remove your email account, and add it back. This may resolve the problem.
+
+  utter_setup_email_mfa:
+  - text: |
+        For a detailed guide, click on this https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB003.pdf . 
+        Follow the step-by-step instructions, including screenshots, mentioned in the document. 
+        If you need further assistance, please contact the IT Support Centre.
+
+  utter_teams_outlook_issue:
+  - text: |
+        If facing issues, try the following troubleshooting steps:
+        1. Sign out of Teams, then restart it.  Search Teams in the taskbar, select from results .
+        2. Close Outlook, then restart it.  Search Outlook in the taskbar, select from results .
+        3. If the add-in is missing, ensure it's not disabled in Outlook. In Outlook, go to File > Options > Add-ins. Confirm Microsoft Teams Meeting Add-in is in Active Application Add-ins. If in Disabled Add-ins, select COM Add-ins, click Go…, choose Microsoft Teams Meeting Add-in. Click OK on all dialog boxes, close Outlook. Restart Outlook  Search Outlook in the taskbar, select from results .
+
+
+  utter_configure_email_iphone:
+  - text: |
+        For detailed instructions, visit: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB005.pdf . 
+        Follow the step-by-step guide with screenshots provided in the document at that link. 
+        For further assistance, contact IT Support Centre.
+
+  utter_access_encrypted_email:
+  - text: |
+        For guidance, visit: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB006.pdf .
+        Follow the instructions with screenshots in the document at that link. 
+        For further assistance, reach out to IT Support Centre.
+
+  utter_resolve_logon_refused_issue:
+  - text: |
+        To resolve the logon refused issue, visit: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB007.pdf .
+        Follow the detailed instructions with screenshots provided in the document at that link. 
+        For additional support, get in touch with the IT Support Centre.
+
+  utter_missing_dictation_playback_buttons:
+  - text:  |
+        To address the issue, go to: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB008.pdf .
+        Follow the instructions with screenshots in the document at that link. 
+        For further help, reach out to IT Support Centre.
+  
+  utter_printer_not_working:
+  - text:  |
+        If facing issues, try these manual troubleshooting steps:
+        1. Unplug and restart your printer.
+        2. Check cables or wireless connection.
+        3. Uninstall and reinstall your printer.
+        4. Install the latest driver for your printer.
+        5. Clear and reset the print spooler.
+        6. Change a printer's status to 'online.
+  utter_endpoint_security_dos_and_donts:
+  - text: "For best practices, refer to:https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB004.pdf . Follow the detailed instructions with screenshots in the document at that link. For additional support, contact IT Support."
+
+  utter_sso_login_issue:
+  - text: |
+        To resolve the SSO login problem, visit: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB009.pdf .
+        Follow the step-by-step instructions with screenshots provided in the document at that link.
+        For further assistance, contact IT Support Centre.
+  utter_installing_esone:
+  - text: |
+        For self-installation, follow these steps:
+        1. Click on this https://www.emdat.com/Software/Download?fileName=eScription%20One%20InScribe%20Manual%20June%202022.pdf .
+        2. Download the eSone manual.
+        3. Follow the installation instructions provided in the manual.
+        4. Install the application.
+        For additional assistance, please contact IT Support Centre.
+  utter_foot_pedal_not_working:
+  - text: |
+        To trouble the foot pedal issue, follow the sequence below:
+        1. Close eSone.
+        2. Unplug all USB devices including the foot pedal.
+        3. Plug in the USB foot pedal and wait for Windows to find it.
+        4. Open eSone and go to the Ports menu the see if the USB option appears and is checked. If so, Esone is recognizing the foot pedal.
+        5. Plug in other USB devices.
+        6. If the computer is not recognizing the foot pedal, close eSone and try another USB port. Continue until all USB ports have been tested.
+        Please contact IT Support Center for further assistance.
+  utter_audio_not_working:
+  - text:  |
+        To troubleshoot the audio issue, follow the sequence below:
+        1. Check your speaker output.
+        2. Run the audio troubleshooter.
+        3. Verify that all Windows Updates are installed.
+        4. Check your cables, plugs, jacks, volume, speaker, and headphone connections.
+        5. Check sound settings.
+        6. Fix your audio drivers.
+        7. Set your audio device as the default device.
+        8. Turn off audio enhancements.
+        9. Restart Audio Services.
+        10. Try different audio formats.
+        11. Restart to apply installed updates.
+        12. Check for IDT High Definition Audio CODEC in Device Manager.
+        13. If you have microphone issues, make sure your privacy settings are configured properly.
+  utter_emdat_login_issue:
+  - text: |
+        To resolve the Emdat login problem please visit: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0010.pdf 
+        Follow the step-by-step instructions available in that document.
+  utter_change_date_format:
+  - text: |
+        To Change the date and time format, visit: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0011.pdf  .
+        Follow the instructions with screenshots in the document at that link.
+        For further assistance, reach out to IT Support Centre.
+
+  utter_reset_dhs_email_password:
+  - text: |
+        To address the issue, go to:   https://shorturl.at/glKST .
+        Please click on the above link to reset password from self-service password reset portal by using MFA authentication method.
+        For further help, reach out to IT Support Centre.
+
+  utter_dhs_email_password_expired:
+  - text: |
+        To address the issue, go to:   https://shorturl.at/glKST .
+        Please click on the above link to reset password from self-service password reset portal by using MFA authentication method.
+        For further help, reach out to IT Support Centre.
+
+  utter_webclient_account_locked:
+  - text: |
+        MDaemon WebClient / IM Spark are legacy email / IM services being used by the MLS and currently user doesn’t have option to unlock account / reset password option.
+        For further help, reach out to IT Support Centre.
+
+  utter_change_password_instructions:
+  - text: |
+        Password Change process:
+        Windows Users:
+        1. If you are not in the office, logon and connect to Azure VPN. Please contact IT service Desk in case azure VPN is not available in your system.
+        2. Log onto your computer as usual and make sure you are connected to the internet.
+        3. Press Ctrl-Alt-Del and click on 'Change Password'.
+        4. Fill in your old password and set a new password. See the password requirements below.
+        5. Press OK to return to your desktop.
+        MAC Users:
+        1. Close Outlook, SMS Teams and all other applications
+        2. Be sure you have no other active login sessions on other computers via  Remote Desktop, VNC, PCAnywhere, Terminal Services, etc. 
+        3. Go to https://account.activedirectory.windowsazure.com/ChangePassword.aspx
+        4. Provide your DeliverHealth Email ID  usually firstname.lastname@DeliverHealth.com 
+        5. Enter your current password  for security reasons & validate your identity , then enter & confirm your new password.
+        6. Close & Restart your E-Mail client, provide your new password when prompted.
+        7. You will also need to update your DeliverHealth password on all your mobile devices where you have your DeliverHealth Email or DeliverHealth wifi configured.
+        8. Mobile Phone users:
+        9. After resetting your DeliverHealth password, you should also update your password on your Smartphone.
+        10. Example: E-Mail client, MS Teams, MS Outlook and SharePoint portal.
+        11. Failure to do so may result in your account getting locked out or missed email and calendar reminders.
+        12. The new password must meet the minimum requirements set forth in our corporate policies including:
+            • It must be at least 14 characters long.
+            • It must contain at least one character from 3 of the 4 following groups of characters:
+                • Uppercase letters  A-Z 
+                • Lowercase letters  a-z 
+                • Numbers  0-9 
+                • Symbols  !@#$%^&*... 
+            • It cannot match any of your past 24 passwords.
+            • It cannot contain characters which match 3 or more consecutive characters of your username.
+            • You cannot change your password more often than once in a 24 hour period.
+
+  utter_convert_esp_to_auto_text:
+  - text: |
+        For best practices to convert ESP file to Auto text, refer to:   https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/kb0014.pdf 
+        Follow the detailed instructions with screenshots in the document at that link.
+        For additional support, contact IT Support Centre.
+
+  utter_troubleshoot_font_issues:
+  - text: |
+        For best practices to convert ESP file to Auto text, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0015.pdf 
+        Follow the detailed instructions with screenshots in the document at that link.
+        For additional support, contact IT Support Centre.
+  utter_screen_sharing_not_working_mac:
+  - text: |
+        You will need to update the screen sharing permissions for Microsoft Teams on your Mac, please follow the below steps to resolve this issue:
+        1. Close Microsoft Teams.
+        2. Click the 'Apple' menu  top left of your screen .
+        3. Click 'System Preferences'.
+        4. Click 'Security & Privacy' then click on the 'Privacy' tab.
+        5. Scroll down the left menu and click 'Screen Recording'.
+        6. Click the padlock icon  bottom left of window  to make changes. If prompted, enter your admin password.
+        7. Tick the checkbox next to 'Microsoft Teams'.
+        8. Open Microsoft Teams and rejoin the meeting. The screen sharing options should now appear.
+        Additionally, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/ScreenSharing.pdf 
+        Follow the detailed instructions with screenshots in the document at that link.
+        For additional support, contact IT Support Centre.
+  utter_inscribe_6_script_error_qa_feedback:
+  - text:  |
+        To address this issue, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0016.pdf 
+        Follow the detailed instructions with screenshots in the document at that link.
+        For additional support, contact IT Support Centre.
+  utter_add_external_user_in_ms_teams_as_guest:
+  - text: |
+        To add external user in MS Teams as guest, refer to:   https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0017.pdf 
+        Follow the detailed instructions with screenshots in the document at that link.
+        For additional support, contact IT Support Centre.
+  utter_use_8x8_phone_system_in_ms_teams:
+  - text:  |
+        To use 8x8 phone system in MS Teams, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0018.pdf 
+        Follow the detailed instructions with screenshots in the document at that link.
+        For additional support, contact IT Support Centre.
+  utter_create_patient_displays_in_inscribe:
+  - text: |
+        To Create Patient Displays in Inscribe, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0020.pdf 
+        Follow the detailed instructions with screenshots in the document at that link.
+        For additional support, contact IT Support Centre.
+
+  utter_error_logging_into_shadow_print:
+  - text: |
+        To address this issue, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0019.pdf 
+        Follow the detailed instructions with screenshots in the document at that link.
+        For additional support, contact IT Support Centre.
+
+  utter_inquiry_freezes_as_soon_as_logged_in:
+  - text: |
+        To address this issue, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0019.pdf 
+        Follow the detailed instructions with screenshots in the document at that link.
+        For additional support, contact IT Support Centre.
+
+  utter_keyboard_shortcut_not_working_in_inscribe:
+  - text: |
+        To address this issue, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0019.pdf 
+        Follow the detailed instructions with screenshots in the document at that link.
+        For additional support, contact IT Support Centre.
+
+  utter_add_executive_calendar_to_outlook:
+  - text: |
+        To add Executive calendar to your Outlook  Windows and Mac , refer to: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0023.pdf 
+        Follow the detailed instructions with screenshots in the document at that link.
+        For additional support, contact IT Support Centre.
+
+  utter_change_esone_platform_password:
+  - text: |
+        To change eSone platform password, refer to: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0024.pdf 
+        Follow the detailed instructions with screenshots in the document at that link.
+        For additional support, contact IT Support Centre.
+  utter_cannot_log_into_inscribe:
+  - text: |
+        If you are unable to log into InScribe then, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0025.pdf 
+        Follow the detailed instructions with screenshots in the document at that link.
+        For additional support, contact IT Support Centre.
+
+  utter_use_autotext_in_comment_box:
+  - text: |
+        To Use AutoText in Comment Box, refer to: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0026.pdf 
+        Follow the detailed instructions with screenshots in the document at that link.
+        For additional support, contact IT Support Centre.
+
+  utter_remove_misspelled_word_from_dictionary:
+  - text: |
+        To Remove a Misspelled Word from your Dictionary, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0027.pdf 
+        Follow the detailed instructions with screenshots in the document at that link.
+        For additional support, contact IT Support Centre.
+  utter_backup_and_restore_autotext_in_inscribe:
+  - text: |
+        To Backup and Restore AutoText in InScribe 6, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0028.pdf 
+        Follow the detailed instructions with screenshots in the document at that link.
+        For additional support, contact IT Support Centre.
+  utter_submit_contract_worker_email_id_request:
+  - text: |
+        To submit contract worker email id request, Please download CW onboarding template and submit to IT support enter and HR department using this link:  TM001.xlsx  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/TM001.xlsx 
+        For additional support, contact IT Support Centre.
+
+  utter_submit_shared_email_account_request:
+  - text: |
+        To submit shared email account request, Please download shared email account creation request template and submit to IT support enter and HR department using this link:  TM002.xlsx  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/TM002.xlsx 
+        For additional support, contact IT Support Centre.
+
+  utter_submit_ms_teams_channel_request:
+  - text: |
+        To submit MS teams channel request, Please download MS teams channel creation request template and submit to IT support enter and HR department using this link:  TM003.xlsx  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/TM003.xlsx 
+        For additional support, contact IT Support Centre.
+
+  utter_submit_sharepoint_portal_request:
+  - text: |
+        To submit SharePoint portal request, Please download SharePoint portal creation request template and submit to IT support enter and HR department using this link:  TM004.xlsx  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/TM004.xlsx 
+        For additional support, contact IT Support Centre.
+
+  utter_submit_distribution_list_request:
+  - text: |
+        To submit Distribution List request, Please download Distribution List request template and submit to IT support enter and HR department using this link:  DLCreationTemplateTM005.xlsx  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/DLCreationTemplateTM005.xlsx 
+        For additional support, contact IT Support Centre.
+
+  utter_unable_login_to_hrms:
+  - text: |
+        To address the login issue, please follow these steps:
+        1. Connect to Azure VPN.
+        2. If Azure VPN is not installed, contact IT Support for installation.
+        3. Go to the HRMS login URL:  https://hrms.deliverhealth.com/HRMS/Login.aspx 
+        4. Log in with your ID and Password.
+        For additional support, contact IT Support Centre.
+
+  utter_hrms_password_not_working:
+  - text: |
+        To address the HRMS password issue, please follow these steps:
+        1. Connect to Azure VPN.
+        2. If Azure VPN is not installed, contact IT Support for installation.
+        3. Go to the HRMS login URL: https://hrms.deliverhealth.com/HRMS/Login.aspx 
+        4. Log in with your ID and Password.
+        5. Click on 'Problem Signing in'.
+        6. Enter your HRID and username.
+        7. A new temporary password will be sent to your DHS email address.
+        8. Log in with the temporary password and set a new password.
+    
+  utter_fiesa_not_working:
+  - text: |
+        To address the Fiesa  Audit Software/Reporting Portal  issue, please follow these steps:
+        1. Check your internet connection.
+        2. Ensure stable internet with no packet drops.
+        3. Test with an alternative internet connection if available.
+        4. If encountering errors while submitting jobs, close the Fiesa audit application.
+        5. Rename the 'DeliverHealth_Solutions_P' folder located at 'C:\\Users\\shankargouda.patil\\AppData\\Local\\DeliverHealth_Solutions_P'.
+        6. Relogin and check.
+        For further assistance, contact IT Support Centre.
+  utter_spark_hanging_or_freezes:
+  - text: |
+        To address the issue of Spark hanging or freezing, please follow these steps:
+        1. Close all Spark windows.
+        2. Navigate to 'C:\\Users\\your windows login\\AppData\\Roaming'.
+        3. Find and delete the Spark folder.
+        4. Login to Spark with your username, password, and server.
+        5. Wait for a few minutes to load all contacts and settings.
+        For further assistance, contact IT Support Centre.
+
+  utter_password_not_accepting_in_world_client:
+  - text:  |
+        To address the issue of password not accepting in World Client, please ensure your password meets the following requirements:
+        1. At least eight characters long.
+        2. Contains characters from three of the four categories: English uppercase characters  A…Z , English lowercase characters  a…z , Numeric digits  0…9 , Non-alphabetical characters  !, $, #, % .
+
+  utter_microsoft_authenticator_not_working:
+  - text: |
+        To resolve the issue with Microsoft Authenticator, please visit: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB003.pdf 
+        Follow the detailed instructions with screenshots provided in the document at that link.
+        For additional support, contact IT Support Centre.
+        Note: If you have changed the Mobile phone device, contact IT support centre to reset your MFA to register new Device.
+
+  utter_install_or_upgrade_escriptionone_version:
+  - text: |
+        To install or upgrade eScriptionOne version, refer to: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB%200029.pdf 
+        Follow the detailed instructions with screenshots in the document at that link.
+        For additional support, contact IT Support Centre.
+        Note: User should have admin rights on the computer for proper installation of eSone application and its components.
+
+  utter_system_requirement_for_escription_platform:
+  - text:  |
+        To know the system requirements for eScription Platform, refer to: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB%200029.pdf 
+        Follow the detailed instructions with screenshots in the document at that link.
+        For additional support, contact IT Support Centre.
+        Note: User should have admin rights on the computer for proper installation of eSone application and its components.
+
+  
+  
+  # utter_greet:
+  # - text: "Hey! How are you?"
+
+  # utter_cheer_up:
+  # - text: "Here is something to cheer you up:"
+  #   image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  # utter_did_that_help:
+  # - text: "Did that help you?"
+
+  # utter_happy:
+  # - text: "Great, carry on!"
+
+  # utter_goodbye:
+  # - text: "Bye"
+
+  # utter_iamabot:
+  # - text: "I am a bot, powered by Rasa."
+
+  # utter_default:
+  # - text: "I'm sorry, I didn't understand that. Can you please rephrase your question or provide more details?"
+  
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

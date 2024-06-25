@@ -1,0 +1,296 @@
+version: "3.1"
+
+stories:
+  # - story: Feedback
+  #   steps:
+  #     - intent: feedback
+  #     - action: action_rating
+
+  - story: Reset Email Password
+    steps:
+      - intent: reset_email_password
+      - action: utter_reset_email_password
+
+  - story: Unblock Email
+    steps:
+      - intent: unblock_email
+      - action: utter_unblock_email
+
+  - story: Return Equipment
+    steps:
+      - intent: return_equipment
+      - action: utter_return_equipment
+
+  - story: Email Password Criteria
+    steps:
+      - intent: email_password_criteria
+      - action: utter_email_password_criteria
+
+  - story: Retrieve BitLocker Key
+    steps:
+      - intent: retrieve_bitlocker_key
+      - action: utter_retrieve_bitlocker_key
+
+  - story: IT Service Contact
+    steps:
+      - intent: it_service_contact
+      - action: utter_it_service_contact
+
+  - story: Send Email Attachment
+    steps:
+      - intent: send_email_attachment
+      - action: utter_send_email_attachment
+
+  - story: Setup Email MFA
+    steps:
+      - intent: setup_email_mfa
+      - action: utter_setup_email_mfa
+
+  - story: Teams Outlook Issue
+    steps:
+      - intent: teams_outlook_issue
+      - action: utter_teams_outlook_issue
+
+  - story: Configure Email iPhone
+    steps:
+      - intent: configure_email_iphone
+      - action: utter_configure_email_iphone
+    
+    
+  - story: Access Encrypted Email
+    steps:
+      - intent: access_encrypted_email
+      - action: utter_access_encrypted_email
+
+  - story: Resolve Logon Refused Issue
+    steps:
+      - intent: resolve_logon_refused_issue
+      - action: utter_resolve_logon_refused_issue
+
+  - story: Missing Dictation Playback Buttons
+    steps:
+      - intent: missing_dictation_playback_buttons
+      - action: utter_missing_dictation_playback_buttons
+
+  - story: Printer Not Working
+    steps:
+      - intent: printer_not_working
+      - action: utter_printer_not_working
+
+  - story: Endpoint Security Do's & Don'ts
+    steps:
+      - intent: endpoint_security_dos_and_donts
+      - action: utter_endpoint_security_dos_and_donts
+
+  - story: SSO Login Issue in eSone
+    steps:
+      - intent: sso_login_issue
+      - action: utter_sso_login_issue
+
+  - story: Installing eSone
+    steps:
+      - intent: installing_esone
+      - action: utter_installing_esone
+
+  - story: Foot Pedal Not Working
+    steps:
+     - intent: foot_pedal_not_working
+     - action: utter_foot_pedal_not_working
+
+  - story: Audio Not Working
+    steps:
+     - intent: audio_not_working
+     - action: utter_audio_not_working
+
+  - story: Emdat Login Issue
+    steps:
+     - intent: emdat_login_issue
+     - action: utter_emdat_login_issue
+
+
+  - story: Emdat Login Issue
+    steps:
+     - intent: emdat_login_issue
+     - action: utter_emdat_login_issue
+
+  - story: Change Date Format
+    steps:
+     - intent: change_date_format
+     - action: utter_change_date_format
+
+  - story: Reset DHS Email Password
+    steps:
+     - intent: reset_dhs_email_password
+     - action: utter_reset_dhs_email_password
+
+  - story: DHS Email Password Expired
+    steps:
+     - intent: dhs_email_password_expired
+     - action: utter_dhs_email_password_expired
+
+  - story: Webclient Account Locked
+    steps:
+     - intent: webclient_account_locked
+     - action: utter_webclient_account_locked
+
+  - story: Change Password Instructions
+    steps:
+      - intent: change_password_instructions
+      - action: utter_change_password_instructions
+
+  - story: Convert ESP to Auto Text
+    steps:
+      - intent: convert_esp_to_auto_text
+      - action: utter_convert_esp_to_auto_text
+
+  - story: Troubleshoot Font Issues
+    steps:
+      - intent: troubleshoot_font_issues
+      - action: utter_troubleshoot_font_issues
+
+  - story: Screen Sharing Not Working in Mac
+    steps:
+      - intent: screen_sharing_not_working_mac
+      - action: utter_screen_sharing_not_working_mac
+
+  - story: InScribe 6 Script Error in QA Feedback
+    steps:
+      - intent: inscribe_6_script_error_qa_feedback
+      - action: utter_inscribe_6_script_error_qa_feedback
+
+  - story: Add External User in MS Teams as Guest
+    steps:
+      - intent: add_external_user_in_ms_teams_as_guest
+      - action: utter_add_external_user_in_ms_teams_as_guest
+
+  - story: Use 8x8 Phone System in MS Teams
+    steps:
+      - intent: use_8x8_phone_system_in_ms_teams
+      - action: utter_use_8x8_phone_system_in_ms_teams
+
+  - story: create_patient_displays_in_inscribe
+    steps:
+      - intent: create_patient_displays_in_inscribe
+      - action: utter_create_patient_displays_in_inscribe
+
+  - story: error_logging_into_shadow_print
+    steps:
+      - intent: error_logging_into_shadow_print
+      - action: utter_error_logging_into_shadow_print
+
+  - story: inquiry_freezes_as_soon_as_logged_in
+    steps:
+      - intent: inquiry_freezes_as_soon_as_logged_in
+      - action: utter_inquiry_freezes_as_soon_as_logged_in
+
+  - story: keyboard_shortcut_not_working_in_inscribe
+    steps:
+      - intent: keyboard_shortcut_not_working_in_inscribe
+      - action: utter_keyboard_shortcut_not_working_in_inscribe
+
+  - story: add_executive_calendar_to_outlook
+    steps:
+      - intent: add_executive_calendar_to_outlook
+      - action: utter_add_executive_calendar_to_outlook
+
+  - story: change_esone_platform_password
+    steps:
+      - intent: change_esone_platform_password
+      - action: utter_change_esone_platform_password
+
+  - story: cannot_log_into_inscribe
+    steps:
+      - intent: cannot_log_into_inscribe
+      - action: utter_cannot_log_into_inscribe
+
+  - story: use_autotext_in_comment_box
+    steps:
+      - intent: use_autotext_in_comment_box
+      - action: utter_use_autotext_in_comment_box
+
+  - story: remove_misspelled_word_from_dictionary
+    steps:
+      - intent: remove_misspelled_word_from_dictionary
+      - action: utter_remove_misspelled_word_from_dictionary
+
+  - story: backup_and_restore_autotext_in_inscribe
+    steps:
+      - intent: backup_and_restore_autotext_in_inscribe
+      - action: utter_backup_and_restore_autotext_in_inscribe
+
+  - story: submit_contract_worker_email_id_request
+    steps:
+      - intent: submit_contract_worker_email_id_request
+      - action: utter_submit_contract_worker_email_id_request
+
+  - story: submit_shared_email_account_request
+    steps:
+      - intent: submit_shared_email_account_request
+      - action: utter_submit_shared_email_account_request
+
+  - story: submit_ms_teams_channel_request
+    steps:
+      - intent: submit_ms_teams_channel_request
+      - action: utter_submit_ms_teams_channel_request
+
+  - story: submit_sharepoint_portal_request
+    steps:
+      - intent: submit_sharepoint_portal_request
+      - action: utter_submit_sharepoint_portal_request
+
+  - story: submit distribution list request
+    steps:
+      - intent: submit_distribution_list_request
+      - action: utter_submit_distribution_list_request
+
+  - story: unable login to HRMS
+    steps:
+      - intent: unable_login_to_hrms
+      - action: utter_unable_login_to_hrms
+
+  - story: HRMS password not working
+    steps:
+      - intent: hrms_password_not_working
+      - action: utter_hrms_password_not_working
+
+  - story: Fiesa not working
+    steps:
+      - intent: fiesa_not_working
+      - action: utter_fiesa_not_working
+
+  - story: Spark hanging or freezes
+    steps:
+      - intent: spark_hanging_or_freezes
+      - action: utter_spark_hanging_or_freezes
+
+  - story: Password not accepting in World Client
+    steps:
+      - intent: password_not_accepting_in_world_client
+      - action: utter_password_not_accepting_in_world_client
+
+  - story: Microsoft Authenticator not working
+    steps:
+      - intent: microsoft_authenticator_not_working
+      - action: utter_microsoft_authenticator_not_working
+
+  - story: Install or upgrade eScriptionOne version
+    steps:
+      - intent: install_or_upgrade_escriptionone_version
+      - action: utter_install_or_upgrade_escriptionone_version
+
+  - story: System requirement for eScription platform
+    steps:
+      - intent: system_requirement_for_escription_platform
+      - action: utter_system_requirement_for_escription_platform
+
+# Add more stories for other intents...
+
+
+
+
+
+  
+      
+
+  
+

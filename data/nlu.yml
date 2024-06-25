@@ -1,0 +1,720 @@
+version: "3.1"
+
+nlu:
+
+
+- intent: feedback
+  examples: |
+    - FeedBack
+    - Rating
+    - Suggestions?
+  
+- intent: reset_email_password
+  examples: |
+    - How to reset and unlock corporate email account password?
+    - I can't access my email, how do I reset my password?
+    - My email password is not working, how can I unlock it?
+    - Help me reset my email password.
+    - What should I do to unlock my corporate email account?
+    - How do I change my email password?
+    - Instructions to reset email account password?
+    - My email account is locked, how do I unlock it?
+    - Steps to reset email password?
+    - How can I unlock my email account?
+
+- intent: unblock_email
+  examples: |
+    - How to unblock a blocked email?
+    - My email is blocked, how can I unblock it?
+    - Instructions to unblock an email?
+    - Help me unblock my email.
+    - Email is blocked, what do I do?
+    - I can't receive emails, how to unblock them?
+    - Guide to unblock email?
+    - What steps to unblock an email?
+    - Email is blocked, need assistance to unblock.
+    - How can I unblock my email messages?
+
+- intent: return_equipment
+  examples: |
+    - How to return company-provided equipment?
+    - I need to return my office equipment, how?
+    - Steps to return company equipment?
+    - What are the options to return company equipment?
+    - Instructions for returning office equipment?
+    - Guide to return company-provided laptop?
+    - How can I send back my work equipment?
+    - Process for equipment return?
+    - How do I return company assets?
+    - What is the procedure to return equipment?
+
+- intent: email_password_criteria
+  examples: |
+    - What are the password criteria for DHS email?
+    - DHS email password requirements?
+    - How to set a password for DHS email?
+    - What are the rules for email password at DHS?
+    - DHS email password policy?
+    - Can you tell me the password criteria for corporate email?
+    - Requirements for setting up an email password?
+    - What are the security requirements for email passwords?
+    - Password rules for DHS email?
+    - What are the criteria for a secure email password?
+
+- intent: retrieve_bitlocker_key
+  examples: |
+    - How can I retrieve my Laptop BitLocker Key?
+    - Steps to get BitLocker Recovery Key?
+    - My BitLocker key is lost, how to retrieve it?
+    - Where can I find my BitLocker Recovery Key?
+    - Instructions to get BitLocker key?
+    - How do I obtain my BitLocker key?
+    - Retrieve BitLocker Recovery Key?
+    - Guide to get BitLocker key?
+    - I need my BitLocker Recovery Key, how?
+    - How to find BitLocker key for my laptop?
+
+- intent: it_service_contact
+  examples: |
+    - IT Service desk contact details & escalation matrix?
+    - How can I contact IT support?
+    - Need IT Service desk contact information.
+    - Who to contact for IT support issues?
+    - IT Support Centre contact details?
+    - Escalation matrix for IT Service issues?
+    - Contact info for IT Service desk?
+    - How do I reach the IT support team?
+    - IT support contact information?
+    - Whom to contact for IT problems?
+
+- intent: send_email_attachment
+  examples: |
+    - How to send an email with an attachment like images, files,csv,word,pdf etc?
+    - Steps to attach a file in an email?
+    - Help with sending an email attachment.
+    - My email attachment isn't sending, what to do?
+    - How can I send an attachment via email?
+    - Guide to send email with file attachment?
+    - Instructions to attach a file in email?
+    - How do I send a file via email?
+    - Sending email with attachments?
+    - Email attachment guide?
+
+- intent: setup_email_mfa
+  examples: |
+    - How to set up a DHS email account and enable MFA?
+    - Steps to configure DHS email and MFA?
+    - Guide for setting up DHS email with MFA?
+    - Instructions to enable MFA for DHS email?
+    - How can I set up my email and MFA?
+    - DHS email setup with MFA?
+    - How do I enable MFA for my DHS email?
+    - Email account setup and MFA configuration?
+    - How to configure email and enable MFA?
+    - Setting up DHS email and multi-factor authentication?
+
+- intent: teams_outlook_issue
+  examples: |
+    - Issue with MS Teams and Outlook access?
+    - Troubleshooting MS Teams and Outlook issues?
+    - How to fix MS Teams and Outlook problems?
+    - Help with MS Teams and Outlook access issues.
+    - Can't access MS Teams and Outlook?
+    - MS Teams and Outlook not working?
+    - Steps to resolve Teams and Outlook issues?
+    - MS Teams and Outlook troubleshooting guide?
+    - What to do if Teams and Outlook don't work?
+    - Guide to fix MS Teams and Outlook access issues?
+
+- intent: configure_email_iphone
+  examples: |
+    - Configuring Deliver Health email on iPhone?
+    - How to set up email on iPhone?
+    - Steps to configure email on iPhone?
+    - Guide to setup email on iPhone?
+    - Email configuration on iPhone?
+    - How can I configure my email on iPhone?
+    - Instructions to set up email on iPhone?
+    - iPhone email setup guide?
+    - How do I configure Deliver Health email on iPhone?
+    - Setting up corporate email on iPhone?
+    - How do I configure Deliver Health email on iPhone?
+    - Can you help me with configuring Deliver Health email on iPhone?
+    - What are the steps to configure Deliver Health email on iPhone?
+    - I need assistance setting up Deliver Health email on iPhone.
+    - Guide me through configuring email on iPhone for Deliver Health.
+    - Configuring email on iPhone for Deliver Health, please help.
+    - iPhone email setup for Deliver Health, can you assist?
+    - Help with setting up email on iPhone for Deliver Health.
+    - Configuring Deliver Health email on iPhone, what should I do?
+    - I'm having trouble setting up Deliver Health email on iPhone.
+
+- intent: access_encrypted_email
+  examples: |
+    - How can I access encrypted emails in Deliver Health?
+    - Can you guide me on accessing and opening encrypted emails?
+    - What's the process to access encrypted email?
+    - Help me with opening encrypted email in Deliver Health.
+    - Accessing encrypted emails, what should I do?
+    - Steps to access encrypted email in Deliver Health?
+    - How do I open encrypted emails?
+    - I'm having trouble accessing encrypted emails, help.
+    - Guide me through accessing encrypted emails.
+    - Accessing and opening encrypted email assistance needed.
+
+- intent: resolve_logon_refused_issue
+  examples: |
+    - How to resolve logon refused issue for D-H World Client Mail Users?
+    - I'm facing logon refused issue, what should I do?
+    - Guide me through resolving logon refused issue for D-H World Client Mail Users.
+    - Steps to resolve logon refused issue for D-H World Client Mail Users?
+    - Help with logon refused issue for D-H World Client Mail Users.
+    - How do I fix logon refused issue for D-H World Client Mail Users?
+    - Logon refused issue troubleshooting steps needed.
+    - I can't log in, help with resolving the issue.
+    - Resolving logon refused issue, what's the procedure?
+    - Assistance needed with logon refused issue for D-H World Client Mail Users.
+
+- intent: missing_dictation_playback_buttons
+  examples: |
+    - How to address missing dictation playback buttons in InScribe?
+    - Guide me through fixing missing dictation playback buttons in InScribe.
+    - I'm missing dictation playback buttons, what should I do?
+    - Assistance needed with missing dictation playback buttons in InScribe.
+    - Steps to address missing dictation playback buttons in InScribe?
+    - Help with missing dictation playback buttons in InScribe.
+    - I can't find dictation playback buttons, help.
+    - Missing dictation playback buttons troubleshooting needed.
+    - How do I fix missing dictation playback buttons in InScribe?
+    - Troubleshoot missing dictation playback buttons in InScribe, please.
+
+- intent: printer_not_working
+  examples: |
+    - My printer is not working, what should I do?
+    - How do I troubleshoot printer not working issue?
+    - Guide me through troubleshooting printer not working.
+    - Printer troubleshooting steps needed.
+    - Help with printer not working issue.
+    - What are the manual troubleshooting steps for printer not working?
+    - Assistance needed with printer not working.
+    - Printer issues, what should I check?
+    - Printer not responding, help.
+    - I'm having trouble with my printer, what to do?
+
+- intent: endpoint_security_dos_and_donts
+  examples: |
+    - What are the dos and don'ts of endpoint security?
+    - Can you provide best practices for endpoint security?
+    - Guide me through endpoint security best practices.
+    - Endpoint security dos and don'ts needed.
+    - What should I do and avoid for endpoint security?
+    - Help with endpoint security guidelines.
+    - Dos and don'ts of endpoint security, please.
+    - I need tips for better endpoint security.
+    - Best practices for securing endpoints?
+    - Assistance needed with endpoint security guidelines.
+
+- intent: sso_login_issue
+  examples: |
+    - How to resolve SSO login issue in eSone?
+    - Guide me through fixing SSO login issue in eSone.
+    - I'm facing SSO login problem, what should I do?
+    - Assistance needed with SSO login issue in eSone.
+    - Steps to resolve SSO login issue in eSone?
+    - Help with SSO login problem in eSone.
+    - I can't log in to eSone, help.
+    - SSO login issue troubleshooting needed.
+    - How do I fix SSO login problem in eSone?
+    - Troubleshoot SSO login issue in eSone, please.
+
+- intent: installing_esone
+  examples: |
+    - How to install eSone?
+    - Guide me through the installation of eSone.
+    - I need help with installing eSone.
+    - Assistance needed with eSone installation.
+    - Steps to install eSone?
+    - Help with eSone installation.
+    - I'm not sure how to install eSone, help.
+    - eSone installation process, what should I do?
+    - Installing eSone troubleshooting needed.
+    - How do I install eSone on my system?
+
+- intent: foot_pedal_not_working
+  examples: |
+    - My foot pedal is not working, what should I do?
+    - How do I troubleshoot foot pedal not working issue?
+    - Guide me through troubleshooting foot pedal not working.
+    - Foot pedal troubleshooting steps needed.
+    - Help with foot pedal not working issue.
+    - What are the steps to fix foot pedal not working?
+    - Assistance needed with foot pedal not working.
+    - Foot pedal issues, what should I check?
+    - Foot pedal not responding, help.
+    - I'm having trouble with my foot pedal, what to do?
+
+- intent: audio_not_working
+  examples: |
+    - My audio is not working, what should I do?
+    - How do I troubleshoot audio not working issue?
+    - Guide me through troubleshooting audio not working.
+    - Audio troubleshooting steps needed.
+    - Help with audio not working issue.
+    - What are the manual troubleshooting steps for audio not working?
+    - Assistance needed with audio not working.
+    - Audio issues, what should I check?
+    - Audio not responding, help.
+    - I'm having trouble with my audio, what to do?
+
+- intent: emdat_login_issue
+  examples: |
+    - How to resolve Emdat login issue?
+    - Guide me through fixing Emdat login issue.
+    - I'm facing Emdat login problem, what should I do?
+    - Assistance needed with Emdat login issue.
+    - Steps to resolve Emdat login issue?
+    - Help with Emdat login problem.
+    - I can't log in to Emdat, help.
+    - Emdat login issue troubleshooting needed.
+    - How do I fix Emdat login problem?
+    - Troubleshoot Emdat login issue, please.
+
+- intent: change_date_format
+  examples: |
+    - How to change the date format?
+    - Guide me through changing the date and time format.
+    - I need help with changing the date format.
+    - Assistance needed with date format change.
+    - Steps to change the date format?
+    - Help with changing date and time format.
+    - How do I modify the date format?
+    - Date format change troubleshooting needed.
+    - How to update the date format?
+    - Change date format, please help.
+
+- intent: reset_dhs_email_password
+  examples: |
+    - I'm unable to reset my DHS email password, what should I do?
+    - How can I reset my DHS email password?
+    - Guide me through resetting my DHS email password.
+    - I need assistance with resetting my DHS email password.
+    - Steps to reset DHS email password?
+    - Help with resetting DHS email password.
+    - I'm unable to reset my email password, help.
+    - DHS email password reset troubleshooting needed.
+    - How to reset my DHS email password?
+    - Assistance needed with DHS email password reset.
+
+- intent: dhs_email_password_expired
+  examples: |
+    - My DHS corporate email password will expire in 2 days, what should I do?
+    - Guide me through resetting my expiring DHS email password.
+    - I need help with my expiring DHS corporate email password.
+    - Assistance needed with expiring DHS email password.
+    - Steps to reset expiring DHS corporate email password?
+    - Help with expiring DHS email password.
+    - My DHS corporate email password is not working or will get expired soon, help.
+    - Expiring DHS email password troubleshooting needed.
+    - How to reset my expiring DHS email password?
+    - Expiring DHS email password assistance required.
+
+- intent: webclient_account_locked
+  examples: |
+    - My Webclient email account is locked, what should I do?
+    - Guide me through unlocking my locked Webclient email account.
+    - I need help with my locked Webclient email account.
+    - Assistance needed with locked Webclient email account.
+    - Steps to unlock locked Webclient email account?
+    - Help with locked Webclient email account.
+    - My Webclient email account is locked, help.
+    - Locked Webclient email account troubleshooting needed.
+    - How to unlock my locked Webclient email account?
+    - Locked Webclient email account assistance required.
+
+- intent: change_password_instructions
+  examples: |
+    - I'm unable to change my password, what should I do?
+    - Guide me through changing my password.
+    - I need help with changing my password.
+    - Assistance needed with changing password.
+    - Steps to change password?
+    - Help with changing password.
+    - I'm having trouble changing my password, help.
+    - Password change troubleshooting needed.
+    - How to change my password?
+    - Password change assistance required.
+
+- intent: convert_esp_to_auto_text
+  examples: |
+    - How to Convert ESP file to Auto Text?
+    - Guide me through converting ESP file to Auto text.
+    - I need help with converting ESP file to Auto text.
+    - Assistance needed with converting ESP file to Auto text.
+    - Steps to convert ESP file to Auto text?
+    - Help with converting ESP file to Auto text.
+    - I'm having trouble converting ESP file to Auto text, help.
+    - ESP file to Auto text conversion troubleshooting needed.
+    - How to convert ESP file to Auto text?
+    - ESP file to Auto text conversion assistance required.
+
+- intent: troubleshoot_font_issues
+  examples: |
+    - How to troubleshoot font issues in Inscribe?
+    - Guide me through troubleshooting font issues in Inscribe.
+    - I need help with font issues troubleshooting in Inscribe.
+    - Assistance needed with font issues in Inscribe.
+    - Steps to troubleshoot font issues in Inscribe?
+    - Help with font issues troubleshooting in Inscribe.
+    - I'm having font issues in Inscribe, help.
+    - Font issues troubleshooting in Inscribe needed.
+    - How to fix font issues in Inscribe?
+    - Font issues troubleshooting assistance required.
+
+- intent: screen_sharing_not_working_mac
+  examples: |
+    - Screen sharing not working in Mac, what should I do?
+    - Guide me through fixing screen sharing issue in Mac.
+    - I'm unable to use screen sharing in Mac, help.
+    - Assistance needed with screen sharing issue in Mac.
+    - Steps to resolve screen sharing issue in Mac?
+    - Help with screen sharing issue in Mac.
+    - Screen sharing not working in Mac, troubleshooting needed.
+    - Screen sharing issue in Mac troubleshooting required.
+    - How to fix screen sharing issue in Mac?
+    - Screen sharing issue in Mac assistance required.
+
+- intent: inscribe_6_script_error_qa_feedback
+  examples: |
+    - InScribe 6 script error in QA Feedback, what should I do?
+    - Guide me through fixing InScribe 6 script error in QA Feedback.
+    - I'm encountering InScribe 6 script error in QA Feedback, help.
+    - Assistance needed with InScribe 6 script error in QA Feedback.
+    - Steps to resolve InScribe 6 script error in QA Feedback?
+    - Help with InScribe 6 script error in QA Feedback.
+    - InScribe 6 script error in QA Feedback, troubleshooting needed.
+    - InScribe 6 script error in QA Feedback troubleshooting required.
+    - How to fix InScribe 6 script error in QA Feedback?
+    - InScribe 6 script error in QA Feedback assistance required.
+
+- intent: add_external_user_in_ms_teams_as_guest
+  examples: |
+    - How to add external user in MS Teams as guest?
+    - Guide me through adding external user in MS Teams as guest.
+    - I need help with adding external user in MS Teams as guest.
+    - Assistance needed with adding external user in MS Teams as guest.
+    - Steps to add external user in MS Teams as guest?
+    - Help with adding external user in MS Teams as guest.
+    - I'm having trouble adding external user in MS Teams as guest, help.
+    - Adding external user in MS Teams as guest, troubleshooting needed.
+    - How to add external user in MS Teams as guest?
+    - Adding external user in MS Teams as guest assistance required.
+
+- intent: use_8x8_phone_system_in_ms_teams
+  examples: |
+    - How to use 8x8 phone system in MS Teams?
+    - Guide me through using 8x8 phone system in MS Teams.
+    - I need assistance with using 8x8 phone system in MS Teams.
+    - Steps to use 8x8 phone system in MS Teams?
+    - Help with using 8x8 phone system in MS Teams.
+    - Can you show me how to use 8x8 phone system in MS Teams?
+    - How do I utilize 8x8 phone system in MS Teams?
+    - I'm having trouble with using 8x8 phone system in MS Teams, can you help?
+    - Assistance required with using 8x8 phone system in MS Teams.
+    - How to operate 8x8 phone system in MS Teams?
+
+- intent: create_patient_displays_in_inscribe
+  examples: |
+    - How to Create Patient Displays in Inscribe?
+    - Guide me through creating patient displays in Inscribe.
+    - I need assistance with creating patient displays in Inscribe.
+    - Steps to create patient displays in Inscribe?
+    - Help with creating patient displays in Inscribe.
+    - Can you show me how to create patient displays in Inscribe?
+    - How do I make patient displays in Inscribe?
+    - I'm having trouble with creating patient displays in Inscribe, can you help?
+    - Assistance required with creating patient displays in Inscribe.
+    - How to generate patient displays in Inscribe?
+
+- intent: error_logging_into_shadow_print
+  examples: |
+    - Error logging into Shadow Print, what should I do?
+    - Guide me through fixing the error while logging into Shadow Print.
+    - I'm encountering an error while logging into Shadow Print, help.
+    - Assistance needed with error logging into Shadow Print.
+    - Steps to resolve the error logging into Shadow Print?
+    - Help with error logging into Shadow Print.
+    - I'm having trouble logging into Shadow Print due to an error, can you help?
+    - Error logging into Shadow Print troubleshooting needed.
+    - How to fix the error logging into Shadow Print?
+    - Error logging into Shadow Print assistance required.
+
+- intent: inquiry_freezes_as_soon_as_logged_in
+  examples: |
+    - InQuiry freezes as soon as logged in, what should I do?
+    - Guide me through fixing InQuiry freezing issue as soon as logged in.
+    - I'm encountering InQuiry freezing issue as soon as I log in, help.
+    - Assistance needed with InQuiry freezing as soon as logged in.
+    - Steps to resolve InQuiry freezing as soon as logged in?
+    - Help with InQuiry freezing as soon as logged in.
+    - I'm having trouble with InQuiry freezing as soon as I log in, can you help?
+    - InQuiry freezing as soon as logged in troubleshooting needed.
+    - How to fix InQuiry freezing as soon as logged in?
+    - InQuiry freezing as soon as logged in assistance required.
+
+- intent: keyboard_shortcut_not_working_in_inscribe
+  examples: |
+    - Keyboard shortcut not working in Inscribe, what should I do?
+    - Guide me through fixing the keyboard shortcut issue in Inscribe.
+    - I'm encountering a keyboard shortcut not working issue in Inscribe, help.
+    - Assistance needed with keyboard shortcut not working in Inscribe.
+    - Steps to resolve keyboard shortcut not working in Inscribe?
+    - Help with keyboard shortcut not working in Inscribe.
+    - I'm having trouble with a keyboard shortcut not working in Inscribe, can you help?
+    - Keyboard shortcut not working in Inscribe troubleshooting needed.
+    - How to fix the keyboard shortcut not working issue in Inscribe?
+    - Keyboard shortcut not working in Inscribe assistance required.
+
+- intent: add_executive_calendar_to_outlook
+  examples: |
+    - How to add Executive calendar to Outlook (Windows and Mac)?
+    - Guide me through adding Executive calendar to Outlook on Windows and Mac.
+    - I need assistance with adding Executive calendar to Outlook (Windows and Mac).
+    - Steps to add Executive calendar to Outlook (Windows and Mac)?
+    - Help with adding Executive calendar to Outlook (Windows and Mac).
+    - Can you show me how to add Executive calendar to Outlook on Windows and Mac?
+    - How do I add Executive calendar to Outlook on Windows and Mac?
+    - I'm having trouble with adding Executive calendar to Outlook on Windows and Mac, can you help?
+    - Assistance required with adding Executive calendar to Outlook (Windows and Mac).
+    - How to set up Executive calendar in Outlook (Windows and Mac)?
+
+- intent: change_esone_platform_password
+  examples: |
+    - How to change eSone platform password?
+    - Guide me through changing eSone platform password.
+    - I need assistance with changing eSone platform password.
+    - Steps to change eSone platform password?
+    - Help with changing eSone platform password.
+    - Can you show me how to change eSone platform password?
+    - How do I modify eSone platform password?
+    - I'm having trouble with changing eSone platform password, can you help?
+    - Assistance required with changing eSone platform password.
+    - How to update eSone platform password?
+
+- intent: cannot_log_into_inscribe
+  examples: |
+    - Cannot log into InScribe, what should I do?
+    - Guide me through fixing the inability to log into InScribe.
+    - I'm unable to log into InScribe, help.
+    - Assistance needed with inability to log into InScribe.
+    - Steps to resolve inability to log into InScribe?
+    - Help with inability to log into InScribe.
+    - I'm having trouble logging into InScribe, can you help?
+    - Inability to log into InScribe troubleshooting needed.
+    - How to fix the inability to log into InScribe?
+    - Inability to log into InScribe assistance required.
+- intent: use_autotext_in_comment_box
+  examples: |
+    - How to Use AutoText in Comment Box?
+    - Guide me through using AutoText in Comment Box.
+    - I need assistance with using AutoText in Comment Box.
+    - Steps to use AutoText in Comment Box?
+    - Help with using AutoText in Comment Box.
+    - Can you show me how to use AutoText in Comment Box?
+    - How do I utilize AutoText in Comment Box?
+    - I'm having trouble with using AutoText in Comment Box, can you help?
+    - Assistance required with using AutoText in Comment Box.
+    - How to operate AutoText in Comment Box?
+
+- intent: remove_misspelled_word_from_dictionary
+  examples: |
+    - How to Remove a Misspelled Word from your Dictionary?
+    - Guide me through removing a misspelled word from my dictionary.
+    - I need assistance with removing a misspelled word from my dictionary.
+    - Steps to remove a misspelled word from my dictionary?
+    - Help with removing a misspelled word from my dictionary.
+    - Can you show me how to remove a misspelled word from my dictionary?
+    - How do I delete a misspelled word from my dictionary?
+    - I'm having trouble with removing a misspelled word from my dictionary, can you help?
+    - Assistance required with removing a misspelled word from my dictionary.
+    - How to erase a misspelled word from my dictionary?
+
+- intent: backup_and_restore_autotext_in_inscribe
+  examples: |
+    - How to Backup and Restore AutoText in InScribe 6 or V.6?
+    - Guide me through backing up and restoring AutoText in InScribe 6 or V.6.
+    - I need assistance with backing up and restoring AutoText in InScribe 6 or V.6.
+    - Steps to backup and restore AutoText in InScribe 6 or V.6?
+    - Help with backing up and restoring AutoText in InScribe 6 or V.6.
+    - Can you show me how to backup and restore AutoText in InScribe 6 or V.6?
+    - How do I perform backup and restore of AutoText in InScribe 6 or V.6?
+    - I'm having trouble with backing up and restoring AutoText in InScribe 6 or V.6, can you help?
+    - Assistance required with backing up and restoring AutoText in InScribe 6 or V.6.
+    - How to handle backup and restore of AutoText in InScribe 6 or V.6?
+
+- intent: submit_contract_worker_email_id_request
+  examples: |
+    - How to submit contract worker email id request?
+    - Guide me through submitting a contract worker email id request.
+    - I need assistance with submitting a contract worker email id request.
+    - Steps to submit a contract worker email id request?
+    - Help with submitting a contract worker email id request.
+    - Can you show me how to submit a contract worker email id request?
+    - How do I request a contract worker email id?
+    - I'm having trouble with submitting a contract worker email id request, can you help?
+    - Assistance required with submitting a contract worker email id request.
+    - How to fill out a contract worker email id request form?
+- intent: submit_shared_email_account_request
+  examples: |
+    - How to submit shared email account request?
+    - Guide me through submitting a shared email account request.
+    - I need assistance with submitting a shared email account request.
+    - Steps to submit a shared email account request?
+    - Help with submitting a shared email account request.
+    - Can you show me how to submit a shared email account request?
+    - How do I request a shared email account?
+    - I'm having trouble with submitting a shared email account request, can you help?
+    - Assistance required with submitting a shared email account request.
+    - How to fill out a shared email account request form?
+
+- intent: submit_ms_teams_channel_request
+  examples: |
+    - How to submit MS Teams channel request?
+    - Guide me through submitting an MS Teams channel request.
+    - I need assistance with submitting an MS Teams channel request.
+    - Steps to submit an MS Teams channel request?
+    - Help with submitting an MS Teams channel request.
+    - Can you show me how to submit an MS Teams channel request?
+    - How do I request an MS Teams channel?
+    - I'm having trouble with submitting an MS Teams channel request, can you help?
+    - Assistance required with submitting an MS Teams channel request.
+    - How to fill out an MS Teams channel request form?
+
+- intent: submit_sharepoint_portal_request
+  examples: |
+    - How to submit SharePoint portal request?
+    - Guide me through submitting a SharePoint portal request.
+    - I need assistance with submitting a SharePoint portal request.
+    - Steps to submit a SharePoint portal request?
+    - Help with submitting a SharePoint portal request.
+    - Can you show me how to submit a SharePoint portal request?
+    - How do I request a SharePoint portal?
+    - I'm having trouble with submitting a SharePoint portal request, can you help?
+    - Assistance required with submitting a SharePoint portal request.
+    - How to fill out a SharePoint portal request form?
+
+- intent: submit_distribution_list_request
+  examples: |
+    - How to submit a distribution list request?
+    - Guide me through submitting a distribution list request.
+    - I need to submit a distribution list request, how do I do that?
+    - Where can I find the distribution list request template?
+    - Can you help me with the distribution list request process?
+    - How do I request a distribution list?
+    - I want to submit a distribution list request, what are the steps?
+    - Where should I submit my distribution list request?
+    - Instructions for submitting a distribution list request?
+    - How to fill the distribution list request template?
+
+- intent: unable_login_to_hrms
+  examples: |
+    - I am unable to login to HRMS, what should I do?
+    - How can I fix login issues with HRMS?
+    - Help, I can't login to HRMS.
+    - What are the steps to login to HRMS?
+    - My HRMS login is not working, what should I do?
+    - How to troubleshoot HRMS login problems?
+    - HRMS login issues, need assistance.
+    - How do I access HRMS?
+    - HRMS login page is not loading, what to do?
+    - How to login to HRMS securely?
+
+- intent: hrms_password_not_working
+  examples: |
+    - My HRMS password is not working, what should I do?
+    - How to reset HRMS password?
+    - What to do if HRMS password is not accepted?
+    - HRMS password reset process?
+    - My HRMS password expired, how to reset?
+    - Need assistance with HRMS password change.
+    - How to change HRMS password?
+    - Password reset for HRMS?
+    - HRMS login failed due to password issue.
+    - How to recover HRMS password?
+
+- intent: fiesa_not_working
+  examples: |
+    - Fiesa (Audit Software / Reporting Portal) is not working, what to do?
+    - How to troubleshoot Fiesa issues?
+    - Fiesa is down, what should I do?
+    - Guide me through fixing Fiesa problems.
+    - What are the steps to resolve Fiesa not working?
+    - Fiesa is not accessible, how to fix it?
+    - Issues with Fiesa application, need assistance.
+    - How to restart Fiesa application?
+    - Fiesa reporting portal is not responding.
+    - How to troubleshoot Fiesa audit software?
+
+- intent: spark_hanging_or_freezes
+  examples: |
+    - My Spark is hanging, how to fix it?
+    - Spark is freezing, what should I do?
+    - How to resolve Spark hanging issues?
+    - Spark keeps freezing, help needed.
+    - Guide me through fixing Spark hangs.
+    - What to do if Spark is unresponsive?
+    - Steps to troubleshoot Spark hanging.
+    - Spark is not responding, how to troubleshoot?
+    - How to restart Spark application?
+    - Spark is not working properly, need assistance.
+
+- intent: password_not_accepting_in_world_client
+  examples: |
+    - Password not accepting in World Client, how to fix?
+    - How to reset World Client password?
+    - What to do if World Client password is not accepted?
+    - World Client password reset process?
+    - My World Client password is not working, what should I do?
+    - Need assistance with World Client password change.
+    - How to change World Client password?
+    - Password reset for World Client?
+    - World Client login failed due to password issue.
+    - How to recover World Client password?
+
+- intent: microsoft_authenticator_not_working
+  examples: |
+    - Microsoft Authenticator is not working, what to do?
+    - How to troubleshoot Microsoft Authenticator issues?
+    - Microsoft Authenticator is not responding, help needed.
+    - Guide me through fixing Microsoft Authenticator problems.
+    - What are the steps to resolve Microsoft Authenticator not working?
+    - Microsoft Authenticator app is not opening, how to fix it?
+    - Issues with Microsoft Authenticator, need assistance.
+    - How to restart Microsoft Authenticator?
+    - Microsoft Authenticator codes are not working.
+    - How to reinstall Microsoft Authenticator?
+
+- intent: install_or_upgrade_escriptionone_version
+  examples: |
+    - How to install or upgrade eScriptionOne version?
+    - Guide me through installing eScriptionOne.
+    - I need to upgrade my eScriptionOne version, what are the steps?
+    - How to update eScriptionOne to the latest version?
+    - Steps to install eScriptionOne software.
+    - What is the process to upgrade eScriptionOne?
+    - How do I download and install eScriptionOne?
+    - Upgrade instructions for eScriptionOne?
+    - I want to install eScriptionOne, where can I find the installer?
+    - How to perform an upgrade of eScriptionOne?
+
+- intent: system_requirement_for_escription_platform
+  examples: |
+    - What are the system requirements for eScription platform?
+    - Guide me through checking system requirements for eScription.
+    - Where can I find the system requirements for eScription platform?
+    - How to know if my system meets the requirements for eScription?
+    - System requirements for eScription installation.
+    - What are the hardware requirements for eScription?
+    - Minimum system specifications for eScription platform?
+    - How to check if my computer is compatible with eScription?
+    - eScription platform compatibility check.
+    - I need information about eScription system requirements.
