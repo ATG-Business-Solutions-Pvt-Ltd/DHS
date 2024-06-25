@@ -72,6 +72,14 @@ class Command(BaseCommand):
                 df_history.to_excel(history_buffer, index=False, engine='openpyxl')
                 history_buffer.seek(0)
                 email.attach('conversation_history.xlsx', history_buffer.getvalue(), 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+            if not feedback_data and conversation_data:
+                email.body=f"No feedback available to send. \n However, please find attached the conversation history. "
+            elif not conversation_data and feedback_data:
+                email.body=f"No conversation history available to send. \n However, please find attached the feedback summary. "
+            elif conversation_data and feedback_data:
+                 email.body=f" please find attached the feedback summary and conversation history. "
+            else:
+                email.body=f"No feedback and conversation history available to send."
             # Create email
             # Send the email
             email.send()
