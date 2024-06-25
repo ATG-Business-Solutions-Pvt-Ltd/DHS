@@ -64,7 +64,7 @@ class Command(BaseCommand):
             if not conversation_data:
                 email.body+='No conversation history available to send. \n'
             else:
-                email.body+='Please find feedback history of the bot.' 
+                email.body+='Please find conversation history of the bot.' 
                 df_history=pd.DataFrame(list(conversation_data))
                 df_history['created_at'] = df_history['created_at'].apply(lambda x: x.replace(tzinfo=None))
                 # Save the dataframe to a BytesIO buffer
