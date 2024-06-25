@@ -9,7 +9,9 @@ import pandas as pd
 from django.core.mail import EmailMessage
 from django.conf import settings
 import json
+import logging
 # Create your views here.
+logger = logging.getLogger(__name__)
 class FeedbackView(APIView):
     def post(self,request):
         serializer=FeedbackSerializer(data=request.data)
@@ -17,6 +19,7 @@ class FeedbackView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
+            logger.info(f'Failed to save feedback {serializer.errors}')
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class GetFeedback(APIView):
@@ -39,13 +42,15 @@ class GetFeedback(APIView):
 class ConversationHistory(APIView):
     def post(self,request):
         try:
-            data=modify_data(request.data)
-            # if isinstance(request.data, list):
-            serializer = ChatHistorySerializer(data=data, many=True)
-            if serializer.is_valid():
-                serializer.save()
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            if isinstance(request.data, list):
+                serializer = ChatHistorySerializer(data=request.data, many=True)
+                if serializer.is_valid():
+                    serializer.save()
+                    return Response(serializer.data, status=status.HTTP_201_CREATED)
+                logger.info(f'Failed to save conversation history{serializer.errors}')
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                return Response("Please provide valid input",status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
             return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
     def get(self,request):
@@ -53,18 +58,6 @@ class ConversationHistory(APIView):
         serializer=ChatHistorySerializer(chat_history,many=True)
         return Response(serializer.data)
     
-class GetConversationHistory(APIView):
-    def get(self,request,email):
-        try:
-            chat_history=ConversationHistoryModel.objects.filter(user_email=email)
-            if chat_history.exists():
-                serializer=ChatHistorySerializer(chat_history,many=True)
-                return Response(serializer.data)
-            return Response({'error': 'No Conversation history found for this email'}, status=status.HTTP_404_NOT_FOUND)
-        except ConversationHistoryModel.DoesNotExist:
-            return Response({'error': 'ConversationHistoryModel not found'}, status=404)
- 
- 
 class GetConversationHistoryV2(APIView):
     def get(self,request):
         chat_history=ConversationHistoryModel.objects.all()

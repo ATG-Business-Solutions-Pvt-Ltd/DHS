@@ -15,7 +15,6 @@ class FeedbackModel(models.Model):
     
 class ConversationHistoryModel(models.Model):
     id = models.AutoField(primary_key=True)
-    user_email = models.CharField(max_length=100)
     user_input=models.TextField()
     bot_response=models.TextField()
     created_at= models.DateTimeField(auto_now_add=True)

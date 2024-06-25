@@ -14,7 +14,7 @@ current_time = datetime.now()
 
 from django.utils import timezone
 import os
-# logger = logging.getLogger(__name__)
+logger = logging.getLogger(__name__)
 # from drf_spectacular.utils import extend_schema, OpenApiTypes, OpenApiExample, OpenApiRequestBody
 # from drf_spectacular.types import OpenApiTypes
 from django.core.mail import EmailMessage
@@ -54,10 +54,12 @@ def log_ticketV2(request):
     # logger.info(f'{request.data}')
     res=create_request_v2(access_token,request.data)
     res=json.loads(res)
-    # if "request" in res:
-    #   # logger.info(f'Ticket has been generated with display Id {res["request"]["display_id"]}')
-    # else:
-    #   logger.info(f'Failed to generate ticket {res} ')
+    current_time = timezone.now()
+    logger.info(f"Current time: {current_time}")
+    if "request" in res:
+      logger.info(f'Ticket has been generated with display Id {res["request"]["display_id"]}')
+    else:
+      logger.info(f'Failed to generate ticket {res} ')
     return Response(data=res,status=status.HTTP_200_OK)
   
 @api_view(http_method_names=["POST"])

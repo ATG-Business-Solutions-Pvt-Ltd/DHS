@@ -10,5 +10,5 @@ class FeedbackSerializer(serializers.ModelSerializer):
 class ChatHistorySerializer(serializers.ModelSerializer):
     class Meta:
         model=ConversationHistoryModel
-        fields = ['id', 'user_email','user_input', 'bot_response', 'created_at']
+        fields = ['id','user_input', 'bot_response', 'created_at']
         read_only_fields = ['created_at']
