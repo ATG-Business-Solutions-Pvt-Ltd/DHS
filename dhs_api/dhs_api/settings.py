@@ -294,8 +294,8 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
             'filename': os.path.join(LOGGING_DIR, 'django.log'),
-            # 'maxBytes': 1024*1024*5,  # 5 MB
-            'maxBytes':1024,
+            'maxBytes': 1024*1024*5,  # 5 MB
+            
             'backupCount': 5,
             'formatter': 'verbose',
         },
