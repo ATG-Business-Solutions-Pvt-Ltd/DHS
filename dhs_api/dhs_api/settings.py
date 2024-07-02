@@ -243,6 +243,39 @@ LOGGING_DIR = os.path.join(BASE_DIR, 'logs')
 if not os.path.exists(LOGGING_DIR):
     os.makedirs(LOGGING_DIR)
 
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'formatters': {
+#         'verbose': {
+#             'format': '{levelname} {asctime} {module} {message}',
+#             'style': '{',
+#         },
+#         'simple': {
+#             'format': '{levelname} {message}',
+#             'style': '{',
+#         },
+#     },
+#     'handlers': {
+#         'file': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': os.path.join(LOGGING_DIR, 'django.log'),
+#             'formatter': 'verbose',
+#         },
+#         'console': {
+#             'level': 'DEBUG',
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'simple',
+#         },
+#     },
+#     'root': {
+#         'handlers': ['file', 'console'],
+#         'level': 'INFO',  
+#     },
+# }
+
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -259,8 +292,11 @@ LOGGING = {
     'handlers': {
         'file': {
             'level': 'DEBUG',
-            'class': 'logging.FileHandler',
+            'class': 'logging.handlers.RotatingFileHandler',
             'filename': os.path.join(LOGGING_DIR, 'django.log'),
+            # 'maxBytes': 1024*1024*5,  # 5 MB
+            'maxBytes':1024,
+            'backupCount': 5,
             'formatter': 'verbose',
         },
         'console': {
@@ -269,7 +305,7 @@ LOGGING = {
             'formatter': 'simple',
         },
     },
-    'root': {
+   'root': {
         'handlers': ['file', 'console'],
         'level': 'INFO',  
     },
