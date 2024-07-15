@@ -42,8 +42,9 @@ class GetFeedback(APIView):
 class ConversationHistory(APIView):
     def post(self,request):
         try:
-            if isinstance(request.data, list):
-                serializer = ChatHistorySerializer(data=request.data, many=True)
+            input_data=request.data.get("conversation_history")
+            if isinstance(input_data, list):
+                serializer = ChatHistorySerializer(data=input_data, many=True)
                 if serializer.is_valid():
                     serializer.save()
                     return Response(serializer.data, status=status.HTTP_201_CREATED)
