@@ -71,13 +71,13 @@ responses:
   utter_reset_email_password:
   - text: |
        Please click on this  https://shorturl.at/glKST  to reset the password through the self-service password reset portal. Use the MFA authentication method. 
-       Also, click on this  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB001.pdf  and follow the step-by-step instructions with screenshots provided in the document available at that link. 
+       Also, click on this  https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB001.pdf  and follow the step-by-step instructions with screenshots provided in the document available at that link. 
        For any assistance, please contact the IT Support Centre.
       
   utter_unblock_email:
   - text: |
         To unblock an email, click on this  https://shorturl.at/hopvB  and refer to the instructions provided in the Mimecast Personal Portal Job Aid. 
-        Additionally, click on this https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB002.pdf  and follow the step-by-step instructions with screenshots mentioned in the document available at that link. 
+        Additionally, click on this https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB002.pdf  and follow the step-by-step instructions with screenshots mentioned in the document available at that link. 
         For any assistance, please contact IT Support.
 
 
@@ -129,7 +129,7 @@ responses:
 
   utter_setup_email_mfa:
   - text: |
-        For a detailed guide, click on this https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB003.pdf . 
+        For a detailed guide, click on this https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB003.pdf . 
         Follow the step-by-step instructions, including screenshots, mentioned in the document. 
         If you need further assistance, please contact the IT Support Centre.
 
@@ -143,25 +143,25 @@ responses:
 
   utter_configure_email_iphone:
   - text: |
-        For detailed instructions, visit: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB005.pdf . 
+        For detailed instructions, visit: https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB005.pdf . 
         Follow the step-by-step guide with screenshots provided in the document at that link. 
         For further assistance, contact IT Support Centre.
 
   utter_access_encrypted_email:
   - text: |
-        For guidance, visit: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB006.pdf .
+        For guidance, visit: https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB006.pdf .
         Follow the instructions with screenshots in the document at that link. 
         For further assistance, reach out to IT Support Centre.
 
   utter_resolve_logon_refused_issue:
   - text: |
-        To resolve the logon refused issue, visit: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB007.pdf .
+        To resolve the logon refused issue, visit: https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB007.pdf .
         Follow the detailed instructions with screenshots provided in the document at that link. 
         For additional support, get in touch with the IT Support Centre.
 
   utter_missing_dictation_playback_buttons:
   - text:  |
-        To address the issue, go to: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB008.pdf .
+        To address the issue, go to: https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB008.pdf .
         Follow the instructions with screenshots in the document at that link. 
         For further help, reach out to IT Support Centre.
   
@@ -175,11 +175,11 @@ responses:
         5. Clear and reset the print spooler.
         6. Change a printer's status to 'online.
   utter_endpoint_security_dos_and_donts:
-  - text: "For best practices, refer to:https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB004.pdf . Follow the detailed instructions with screenshots in the document at that link. For additional support, contact IT Support."
+  - text: "For best practices, refer to:https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB004.pdf . Follow the detailed instructions with screenshots in the document at that link. For additional support, contact IT Support."
 
   utter_sso_login_issue:
   - text: |
-        To resolve the SSO login problem, visit: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB009.pdf .
+        To resolve the SSO login problem, visit: https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB009.pdf .
         Follow the step-by-step instructions with screenshots provided in the document at that link.
         For further assistance, contact IT Support Centre.
   utter_installing_esone:
@@ -218,11 +218,11 @@ responses:
         13. If you have microphone issues, make sure your privacy settings are configured properly.
   utter_emdat_login_issue:
   - text: |
-        To resolve the Emdat login problem please visit: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0010.pdf 
+        To resolve the Emdat login problem please visit: https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB0010.pdf 
         Follow the step-by-step instructions available in that document.
   utter_change_date_format:
   - text: |
-        To Change the date and time format, visit: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0011.pdf  .
+        To Change the date and time format, visit: https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB0011.pdf  .
         Follow the instructions with screenshots in the document at that link.
         For further assistance, reach out to IT Support Centre.
 
@@ -277,13 +277,13 @@ responses:
 
   utter_convert_esp_to_auto_text:
   - text: |
-        For best practices to convert ESP file to Auto text, refer to:   https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/kb0014.pdf 
+        For best practices to convert ESP file to Auto text, refer to:   https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/kb0014.pdf 
         Follow the detailed instructions with screenshots in the document at that link.
         For additional support, contact IT Support Centre.
 
   utter_troubleshoot_font_issues:
   - text: |
-        For best practices to convert ESP file to Auto text, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0015.pdf 
+        For best practices to convert ESP file to Auto text, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB0015.pdf 
         Follow the detailed instructions with screenshots in the document at that link.
         For additional support, contact IT Support Centre.
   utter_screen_sharing_not_working_mac:
@@ -297,104 +297,104 @@ responses:
         6. Click the padlock icon  bottom left of window  to make changes. If prompted, enter your admin password.
         7. Tick the checkbox next to 'Microsoft Teams'.
         8. Open Microsoft Teams and rejoin the meeting. The screen sharing options should now appear.
-        Additionally, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/ScreenSharing.pdf 
+        Additionally, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/ScreenSharing.pdf 
         Follow the detailed instructions with screenshots in the document at that link.
         For additional support, contact IT Support Centre.
   utter_inscribe_6_script_error_qa_feedback:
   - text:  |
-        To address this issue, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0016.pdf 
+        To address this issue, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB0016.pdf 
         Follow the detailed instructions with screenshots in the document at that link.
         For additional support, contact IT Support Centre.
   utter_add_external_user_in_ms_teams_as_guest:
   - text: |
-        To add external user in MS Teams as guest, refer to:   https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0017.pdf 
+        To add external user in MS Teams as guest, refer to:   https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB0017.pdf 
         Follow the detailed instructions with screenshots in the document at that link.
         For additional support, contact IT Support Centre.
   utter_use_8x8_phone_system_in_ms_teams:
   - text:  |
-        To use 8x8 phone system in MS Teams, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0018.pdf 
+        To use 8x8 phone system in MS Teams, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB0018.pdf 
         Follow the detailed instructions with screenshots in the document at that link.
         For additional support, contact IT Support Centre.
   utter_create_patient_displays_in_inscribe:
   - text: |
-        To Create Patient Displays in Inscribe, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0020.pdf 
+        To Create Patient Displays in Inscribe, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB0020.pdf 
         Follow the detailed instructions with screenshots in the document at that link.
         For additional support, contact IT Support Centre.
 
   utter_error_logging_into_shadow_print:
   - text: |
-        To address this issue, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0019.pdf 
+        To address this issue, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB0019.pdf 
         Follow the detailed instructions with screenshots in the document at that link.
         For additional support, contact IT Support Centre.
 
   utter_inquiry_freezes_as_soon_as_logged_in:
   - text: |
-        To address this issue, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0019.pdf 
+        To address this issue, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB0019.pdf 
         Follow the detailed instructions with screenshots in the document at that link.
         For additional support, contact IT Support Centre.
 
   utter_keyboard_shortcut_not_working_in_inscribe:
   - text: |
-        To address this issue, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0019.pdf 
+        To address this issue, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB0019.pdf 
         Follow the detailed instructions with screenshots in the document at that link.
         For additional support, contact IT Support Centre.
 
   utter_add_executive_calendar_to_outlook:
   - text: |
-        To add Executive calendar to your Outlook  Windows and Mac , refer to: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0023.pdf 
+        To add Executive calendar to your Outlook  Windows and Mac , refer to: https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB0023.pdf 
         Follow the detailed instructions with screenshots in the document at that link.
         For additional support, contact IT Support Centre.
 
   utter_change_esone_platform_password:
   - text: |
-        To change eSone platform password, refer to: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0024.pdf 
+        To change eSone platform password, refer to: https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB0024.pdf 
         Follow the detailed instructions with screenshots in the document at that link.
         For additional support, contact IT Support Centre.
   utter_cannot_log_into_inscribe:
   - text: |
-        If you are unable to log into InScribe then, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0025.pdf 
+        If you are unable to log into InScribe then, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB0025.pdf 
         Follow the detailed instructions with screenshots in the document at that link.
         For additional support, contact IT Support Centre.
 
   utter_use_autotext_in_comment_box:
   - text: |
-        To Use AutoText in Comment Box, refer to: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0026.pdf 
+        To Use AutoText in Comment Box, refer to: https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB0026.pdf 
         Follow the detailed instructions with screenshots in the document at that link.
         For additional support, contact IT Support Centre.
 
   utter_remove_misspelled_word_from_dictionary:
   - text: |
-        To Remove a Misspelled Word from your Dictionary, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0027.pdf 
+        To Remove a Misspelled Word from your Dictionary, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB0027.pdf 
         Follow the detailed instructions with screenshots in the document at that link.
         For additional support, contact IT Support Centre.
   utter_backup_and_restore_autotext_in_inscribe:
   - text: |
-        To Backup and Restore AutoText in InScribe 6, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB0028.pdf 
+        To Backup and Restore AutoText in InScribe 6, refer to:  https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB0028.pdf 
         Follow the detailed instructions with screenshots in the document at that link.
         For additional support, contact IT Support Centre.
   utter_submit_contract_worker_email_id_request:
   - text: |
-        To submit contract worker email id request, Please download CW onboarding template and submit to IT support enter and HR department using this link:  TM001.xlsx  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/TM001.xlsx 
+        To submit contract worker email id request, Please download CW onboarding template and submit to IT support enter and HR department using this link:  TM001.xlsx  https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/TM001.xlsx 
         For additional support, contact IT Support Centre.
 
   utter_submit_shared_email_account_request:
   - text: |
-        To submit shared email account request, Please download shared email account creation request template and submit to IT support enter and HR department using this link:  TM002.xlsx  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/TM002.xlsx 
+        To submit shared email account request, Please download shared email account creation request template and submit to IT support enter and HR department using this link:  TM002.xlsx  https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/TM002.xlsx 
         For additional support, contact IT Support Centre.
 
   utter_submit_ms_teams_channel_request:
   - text: |
-        To submit MS teams channel request, Please download MS teams channel creation request template and submit to IT support enter and HR department using this link:  TM003.xlsx  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/TM003.xlsx 
+        To submit MS teams channel request, Please download MS teams channel creation request template and submit to IT support enter and HR department using this link:  TM003.xlsx  https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/TM003.xlsx 
         For additional support, contact IT Support Centre.
 
   utter_submit_sharepoint_portal_request:
   - text: |
-        To submit SharePoint portal request, Please download SharePoint portal creation request template and submit to IT support enter and HR department using this link:  TM004.xlsx  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/TM004.xlsx 
+        To submit SharePoint portal request, Please download SharePoint portal creation request template and submit to IT support enter and HR department using this link:  TM004.xlsx  https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/TM004.xlsx 
         For additional support, contact IT Support Centre.
 
   utter_submit_distribution_list_request:
   - text: |
-        To submit Distribution List request, Please download Distribution List request template and submit to IT support enter and HR department using this link:  DLCreationTemplateTM005.xlsx  https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/DLCreationTemplateTM005.xlsx 
+        To submit Distribution List request, Please download Distribution List request template and submit to IT support enter and HR department using this link:  DLCreationTemplateTM005.xlsx  https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/DLCreationTemplateTM005.xlsx 
         For additional support, contact IT Support Centre.
 
   utter_unable_login_to_hrms:
@@ -446,21 +446,21 @@ responses:
 
   utter_microsoft_authenticator_not_working:
   - text: |
-        To resolve the issue with Microsoft Authenticator, please visit: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB003.pdf 
+        To resolve the issue with Microsoft Authenticator, please visit: https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB003.pdf 
         Follow the detailed instructions with screenshots provided in the document at that link.
         For additional support, contact IT Support Centre.
         Note: If you have changed the Mobile phone device, contact IT support centre to reset your MFA to register new Device.
 
   utter_install_or_upgrade_escriptionone_version:
   - text: |
-        To install or upgrade eScriptionOne version, refer to: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB%200029.pdf 
+        To install or upgrade eScriptionOne version, refer to: https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB%200029.pdf 
         Follow the detailed instructions with screenshots in the document at that link.
         For additional support, contact IT Support Centre.
         Note: User should have admin rights on the computer for proper installation of eSone application and its components.
 
   utter_system_requirement_for_escription_platform:
   - text:  |
-        To know the system requirements for eScription Platform, refer to: https://deliverhealthsolutions.sharepoint.com/sites/DH-ChatBot/KB_Docs/KB%200029.pdf 
+        To know the system requirements for eScription Platform, refer to: https://deliverhealthsolutions.sharepoint.com/sites/DHS-RepositoryDocuments/Shared%20Documents/Information%20technology%20Repository/IT%20Public%20Documents/Chatbot%20Knowledge%20Base%20-%20Public/KB%200029.pdf 
         Follow the detailed instructions with screenshots in the document at that link.
         For additional support, contact IT Support Centre.
         Note: User should have admin rights on the computer for proper installation of eSone application and its components.
