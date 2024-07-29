@@ -234,7 +234,7 @@ EMAIL_HOST_USER=os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD=os.getenv('EMAIL_HOST_PASSWORD')
 
 CRONJOBS = [
-    ('0 0 * * 1', 'django.core.management.call_command', ['send_emails']),
+    ('0 8 * * *', 'django.core.management.call_command', ['send_emails']),
     ('29 10 * * 2', 'django.core.management.call_command', ['send_emails']),
 ]
 

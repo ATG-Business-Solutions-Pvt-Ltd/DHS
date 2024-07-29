@@ -44,9 +44,9 @@ class Command(BaseCommand):
                 from_email=settings.EMAIL_HOST_USER,
                 #['sheetal.warbhuvan@aeriestechnology.com','shreeshalini.r@aeriestechnology.com',
                             # 'asish.barik@aeriestechnology.com','nirmal.nathani@aeriestechnology.com','neha.patil@aeriestechnology.com'],
-                to=['sheetal.warbhuvan@aeriestechnology.com','shreeshalini.r@aeriestechnology.com',
-                            'asish.barik@aeriestechnology.com','nirmal.nathani@aeriestechnology.com','neha.patil@aeriestechnology.com','feedback.chatbot@deliverhealth.com']
-                # to=['sheetal.warbhuvan@aeriestechnology.com']# Replace with the recipient's email
+                # to=['sheetal.warbhuvan@aeriestechnology.com','shreeshalini.r@aeriestechnology.com',
+                #             'asish.barik@aeriestechnology.com','nirmal.nathani@aeriestechnology.com','neha.patil@aeriestechnology.com','feedback.chatbot@deliverhealth.com']
+                to=['feedback.chatbot@deliverhealth.com','sairam.thummala@deliverhealth.com']# Replace with the recipient's email
             )
             logger.info(f"Feedback of last week : {feedback_data}")
             logger.info(f"conversation history: {conversation_data}")
