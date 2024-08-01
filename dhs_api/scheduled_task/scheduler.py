@@ -10,12 +10,14 @@ import logging
 from io import BytesIO
 from django.utils import timezone
 from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
+from apscheduler.triggers.interval import IntervalTrigger
 from django.core.mail import EmailMessage
 import pandas as pd
 import pytz
 from django.conf import settings
 import os
 import logging.config
+import time
 # import environ
 # from decouple import config
 from dotenv import load_dotenv
@@ -29,8 +31,8 @@ def send_mail():
             current_time = timezone.now()
             logger.info(f"Current time: {current_time} {current_time.weekday()}")
             # Fetch feedback from the last week
-            feedbacks = FeedbackModel.objects.filter(created_at__range=[last_week_start, last_week_end])
-            conversation_history=ConversationHistoryModel.objects.filter(created_at__range=[last_week_start, last_week_end])
+            feedbacks = FeedbackModel.objects.all()
+            conversation_history=ConversationHistoryModel.objects.all()
             
             feedback_data = [{
                 'id': feedback.id,
@@ -56,7 +58,7 @@ def send_mail():
                 #             'asish.barik@aeriestechnology.com','nirmal.nathani@aeriestechnology.com','neha.patil@aeriestechnology.com','feedback.chatbot@deliverhealth.com']
                 to=['feedback.chatbot@deliverhealth.com','sairam.thummala@deliverhealth.com']# Replace with the recipient's email
             )
-            logger.info(f"Feedback of last week : {feedback_data}")
+            logger.info(f"Feedback : {feedback_data}")
             logger.info(f"conversation history: {conversation_data}")
             if not feedback_data:
                 email.body='No feedback available to send. \n'
@@ -106,13 +108,13 @@ def start():
     }
     scheduler.configure(jobstores=jobstores)
     start_time = datetime.now() + timedelta(minutes=5)
-    scheduler.add_job(
-        send_mail,
-        trigger=CronTrigger(hour="8", minute="0"),  # Run daily at 8:00 AM
-        id="send_daily_email",
-        max_instances=1,
-        replace_existing=True,
-    )
+    # scheduler.add_job(
+    #     send_mail,
+    #     trigger=CronTrigger(hour="10", minute="0"),  # Run daily at 8:00 AM
+    #     id="send_daily_email",
+    #     max_instances=1,
+    #     replace_existing=True,
+    # )
     
     # scheduler.add_job(
     #     send_mail,
@@ -121,7 +123,19 @@ def start():
     #     max_instances=1,
     #     replace_existing=True,
     # )
-
+    start_time = datetime.now() + timedelta(minutes=5)
+    scheduler.add_job(
+    send_mail,
+    trigger=IntervalTrigger(hours=24, start_date=start_time),  # Run every 3 hours
+    id="send_interval_email",
+    max_instances=1,
+    replace_existing=True,
+)
     register_events(scheduler)
     scheduler.start()
-    print("Scheduler started!")
+    # print("Scheduler started!")  
+    # try:
+    #     while True:
+    time.sleep(2)
+    # except (KeyboardInterrupt, SystemExit):
+    #      scheduler.shutdown()

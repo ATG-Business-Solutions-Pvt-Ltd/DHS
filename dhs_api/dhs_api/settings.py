@@ -235,10 +235,10 @@ EMAIL_USE_TLS=os.getenv('EMAIL_USE_TLS')
 EMAIL_HOST_USER=os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD=os.getenv('EMAIL_HOST_PASSWORD')
 
-CRONJOBS = [
-    ('0 8 * * *', 'django.core.management.call_command', ['send_emails']),
-    ('29 10 * * 2', 'django.core.management.call_command', ['send_emails']),
-]
+# CRONJOBS = [
+#     ('0 8 * * *', 'django.core.management.call_command', ['send_emails']),
+#     ('29 10 * * 2', 'django.core.management.call_command', ['send_emails']),
+# ]
 
 
 LOGGING_DIR = os.path.join(BASE_DIR, 'logs')

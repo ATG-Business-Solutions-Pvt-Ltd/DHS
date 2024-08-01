@@ -87,8 +87,7 @@ def send_email(feedback_data,history_data):
         subject='Feedback Report',
         body='Please find attached the feedback report .',
         from_email=settings.EMAIL_HOST_USER,
-        to=['sheetal.warbhuvan@aeriestechnology.com','shreeshalini.r@aeriestechnology.com',
-                          'asish.barik@aeriestechnology.com','nirmal.nathani@aeriestechnology.com','neha.patil@aeriestechnology.com']
+        to=['feedback.chatbot@deliverhealth.com','sairam.thummala@deliverhealth.com']
         #  to=['sheetal.warbhuvan@aeriestechnology.com']
     )
     
