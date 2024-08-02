@@ -185,12 +185,11 @@ def start():
     start_time = datetime.now() + timedelta(minutes=5)
     scheduler.add_job(
     send__daily_mail,
-    trigger=IntervalTrigger(hours=24, start_date=start_time),  # Run every 3 hours
+    trigger=IntervalTrigger(hours=24, start_date=start_time),  # Run every 24 hours
     id="send_interval_email",
     max_instances=1,
     replace_existing=True,
-)
-    
+) 
     # Schedule the weekly email job
     scheduler.add_job(
         send_mail,
@@ -202,8 +201,6 @@ def start():
     register_events(scheduler)
     scheduler.start()
     print("Scheduler started!")  
-    try:
-        while True:
-            time.sleep(2)
-    except (KeyboardInterrupt, SystemExit):
-         scheduler.shutdown()
+   
+    time.sleep(2)
+  
