@@ -82,7 +82,7 @@ class Command(BaseCommand):
                 email.body=f"No feedback and conversation history available to send."
             # Create email
             # Send the email
-            email.send()
+            # email.send()
             logger.info("Email sent successfully")
             self.stdout.write(self.style.SUCCESS('Successfully sent feedback emails with attachment'))
         except Exception as e:  

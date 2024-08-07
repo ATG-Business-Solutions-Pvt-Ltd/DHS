@@ -172,7 +172,7 @@ def send_mail(start_time, end_time, period):
             subject=f'{period.capitalize()} feedback summary and conversation history',
             body=body,
             from_email=settings.EMAIL_HOST_USER,
-             to=['sheetal.warbhuvan@aeriestechnology.com']
+            to=['feedback.chatbot@deliverhealth.com','sairam.thummala@deliverhealth.com']
         )
 
         if feedback_data:
