@@ -151,57 +151,66 @@ scheduler = None  # Initialize scheduler variable
 
 
 def send_mail(start_time, end_time, period):
-    try:
-        feedbacks = FeedbackModel.objects.filter(created_at__range=(start_time, end_time))
-        conversation_history = ConversationHistoryModel.objects.filter(created_at__range=(start_time, end_time))
-        feedback_data = [{
-            'id': feedback.id,
-            'user_email': feedback.user_email,
-            'ratings': feedback.ratings,
-            'reviews': feedback.reviews,
-            'created_at': feedback.created_at
-        } for feedback in feedbacks]
-        conversation_data = [{
-            'id': conversation.id,
-            'user_input': conversation.user_input,
-            'bot_response': conversation.bot_response,
-            'created_at': conversation.created_at
-        } for conversation in conversation_history]
-        logger.info(f"Send {period.capitalize()} feedback  and conversation history")
-        body = 'Please find attached feedback summary and conversation history report of bot.'
-        email = EmailMessage(
-            subject=f'{period.capitalize()} feedback summary and conversation history',
-            body=body,
-            from_email=settings.EMAIL_HOST_USER,
-            # to=['feedback.chatbot@deliverhealth.com','sairam.thummala@deliverhealth.com']
-            to=['sheetal.warbhuvan@aeriestechnology.com']
-        )
-        if feedback_data:
-            logger.info(f"Sending feedback ")
-            df = pd.DataFrame(feedback_data)
-            df['created_at'] = df['created_at'].apply(lambda x: x.replace(tzinfo=None))
-            buffer = BytesIO()
-            df.to_excel(buffer, index=False, engine='openpyxl')
-            buffer.seek(0)
-            email.attach(f'{period}_feedback_summary.xlsx', buffer.getvalue(), 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-            logger.info(f"{period.capitalize()}-Feedback ---> {feedback_data} ")
-        if conversation_data:
-            logger.info(f"Sending Conversation History ")
-            df_history = pd.DataFrame(conversation_data)
-            df_history['created_at'] = df_history['created_at'].apply(lambda x: x.replace(tzinfo=None))
-            history_buffer = BytesIO()
-            df_history.to_excel(history_buffer, index=False, engine='openpyxl')
-            history_buffer.seek(0)
-            email.attach(f'{period}_conversation_history.xlsx', history_buffer.getvalue(), 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-            logger.info(f"{period.capitalize()}-Conversation History ---> {conversation_data} ")
-        if not conversation_data and not feedback_data:
-                logger.info(f"No Conversation History and Feedback received from user ")
-                email.body=f"No feedback and conversation history available to send."
-        logger.info(f"Sending an email")
-        email.send()
-        logger.info(f"{period.capitalize()} email sent successfully")
-    except Exception as e:
-        logger.error(f"Failed to send {period} email: {str(e)}")
+    retries = 3
+    for attempt in range(retries):
+        try:
+            feedbacks = FeedbackModel.objects.filter(created_at__range=(start_time, end_time))
+            conversation_history = ConversationHistoryModel.objects.filter(created_at__range=(start_time, end_time))
+            feedback_data = [{
+                'id': feedback.id,
+                'user_email': feedback.user_email,
+                'ratings': feedback.ratings,
+                'reviews': feedback.reviews,
+                'created_at': feedback.created_at
+            } for feedback in feedbacks]
+            conversation_data = [{
+                'id': conversation.id,
+                'user_input': conversation.user_input,
+                'bot_response': conversation.bot_response,
+                'created_at': conversation.created_at
+            } for conversation in conversation_history]
+            logger.info(f"Send {period.capitalize()} feedback  and conversation history")
+            body = 'Please find attached feedback summary and conversation history report of bot.'
+            email = EmailMessage(
+                subject=f'{period.capitalize()} feedback summary and conversation history',
+                body=body,
+                from_email=settings.EMAIL_HOST_USER,
+                # to=['feedback.chatbot@deliverhealth.com','sairam.thummala@deliverhealth.com']
+                to=['sheetal.warbhuvan@aeriestechnology.com']
+            )
+            if feedback_data:
+                logger.info(f"Sending feedback ")
+                df = pd.DataFrame(feedback_data)
+                df['created_at'] = df['created_at'].apply(lambda x: x.replace(tzinfo=None))
+                buffer = BytesIO()
+                df.to_excel(buffer, index=False, engine='openpyxl')
+                buffer.seek(0)
+                email.attach(f'{period}_feedback_summary.xlsx', buffer.getvalue(), 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+                logger.info(f"{period.capitalize()}-Feedback ---> {feedback_data} ")
+            if conversation_data:
+                logger.info(f"Sending Conversation History ")
+                df_history = pd.DataFrame(conversation_data)
+                df_history['created_at'] = df_history['created_at'].apply(lambda x: x.replace(tzinfo=None))
+                history_buffer = BytesIO()
+                df_history.to_excel(history_buffer, index=False, engine='openpyxl')
+                history_buffer.seek(0)
+                email.attach(f'{period}_conversation_history.xlsx', history_buffer.getvalue(), 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+                logger.info(f"{period.capitalize()}-Conversation History ---> {conversation_data} ")
+            if not conversation_data and not feedback_data:
+                    logger.info(f"No Conversation History and Feedback received from user ")
+                    email.body=f"No feedback and conversation history available to send."
+            logger.info(f"Sending an email")
+            email.send()
+            logger.info(f"{period.capitalize()} email sent successfully")
+            break
+        except Exception as e:
+            logger.error(f"Failed to send {period} email: {str(e)}")
+            if attempt < retries - 1:
+                wait_time = 2 ** attempt
+                logger.info(f"Retrying in {wait_time} seconds...")
+                time.sleep(wait_time)
+            else:
+                logger.error("All retry attempts failed.")
 
 
 
@@ -240,32 +249,13 @@ def start():
     }
     scheduler.configure(jobstores=jobstores)
     scheduler.add_listener(job_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR | EVENT_JOB_MISSED)
-    start_time = datetime.now() + timedelta(minutes=5)
-  
-    # scheduler.add_job(
-    #         send_daily_mail_new,
-    #         trigger=CronTrigger(hour=5, minute=0),
-    #         id="send_daily_email_new",
-    #         max_instances=1,
-    #         replace_existing=True,
-    #         misfire_grace_time=3600
-    #     )
-   
-    # scheduler.add_job(
-    #     send_weekly_mail_new,
-    #     trigger=CronTrigger(day_of_week='mon', hour='6', minute='0'),
-    #     id='send_weekly_email_new',
-    #     max_instances=1,
-    #     replace_existing=True,
-    #     misfire_grace_time=3600
-    # )
-    
+    start_time = datetime.now() + timedelta(minutes=5)  
      # scheduler.add_job(send_daily_mail_new, 'cron', hour=5,minute = 0)
     scheduler.add_job(send_daily_mail_new,'interval', minutes=7, max_instances=1, misfire_grace_time=300 ,replace_existing=True,id="send_daily_email_new") 
     scheduler.add_job(send_weekly_mail_new, 'interval',minutes = 11,max_instances=1, misfire_grace_time=300 ,replace_existing=True,id="send_weekly_email_new") 
 
-    # scheduler.add_job(send_daily_mail_new,'cron',hour=5, minute=0, max_instances=1, misfire_grace_time=3600 ,replace_existing=True,id="send_daily_email_new") # Allow up to 60 seconds of grace time)
-    # scheduler.add_job(send_weekly_mail_new, 'cron',hour=6,minute = 0,max_instances=1, misfire_grace_time=3600 ,replace_existing=True,id="send_daily_email_new") # Allow up to 60 seconds of grace time)
+    # scheduler.add_job(send_daily_mail_new,'cron',hour=7, minute=35, max_instances=1, misfire_grace_time=300 ,replace_existing=True,id="send_daily_email_new") # Allow up to 60 seconds of grace time)
+    # scheduler.add_job(send_weekly_mail_new, 'cron',day_of_week='mon',hour=6,minute = 0,max_instances=1, misfire_grace_time=300 ,replace_existing=True,id="send_daily_email_new") # Allow up to 60 seconds of grace time)
     register_events(scheduler)
     scheduler.start()
     print("Scheduler started!") 
