@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'django_crontab',
     'rest_framework',
     'dhs_history',
     'scheduled_task',
@@ -145,66 +144,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'formatters': {
-#         'verbose': {
-#             'format': '{levelname} {asctime} {module} {message}',
-#             'style': '{',
-#         },
-#         'simple': {
-#             'format': '{levelname} {message}',
-#             'style': '{',
-#         },
-#     },
-#     'handlers': {
-#         'file': {
-#             'level': 'DEBUG',
-#             'class': 'logging.handlers.TimedRotatingFileHandler',
-#             'when': 'D',
-#             'interval': 1,
-#             'backupCount': 3,
-#             'encoding': 'utf8',
-#             'filename': os.path.join(BASE_DIR, 'debug.log'),
-#             'formatter': 'verbose',
-#         },
-#         'console': {
-#             'level': 'DEBUG',
-#             'class': 'logging.StreamHandler',
-#             'formatter': 'simple',
-#         },
-#     },
-#     'loggers': {
-#         'django': {
-#             'handlers': ['file', 'console'],
-#             'level': 'DEBUG',
-#             'propagate': True,
-#         },
-#         'django.request': {
-#             'handlers': ['file', 'console'],
-#             'level': 'ERROR',
-#             'propagate': False,
-#         },
-#         'dhs_api': {  
-#             'handlers': ['file', 'console'],
-#             'level': 'DEBUG',
-#             'propagate': False,
-#         },
-#     },
-# }
-
-# REST_FRAMEWORK = {
-#     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-# }
-
-# SPECTACULAR_SETTINGS = {
-#     'TITLE': 'DHS Ticket generation API',
-#     'DESCRIPTION': 'DHS Ticket generation API',
-#     'VERSION': '1.0.0',
-#     # Other settings
-# }
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_METHODS = [
     'GET',
@@ -240,43 +179,8 @@ EMAIL_HOST_PASSWORD=os.getenv('EMAIL_HOST_PASSWORD')
 #     ('29 10 * * 2', 'django.core.management.call_command', ['send_emails']),
 # ]
 
-
 LOGGING_DIR = os.path.join(BASE_DIR, 'logs')
-if not os.path.exists(LOGGING_DIR):
-    os.makedirs(LOGGING_DIR)
-
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'formatters': {
-#         'verbose': {
-#             'format': '{levelname} {asctime} {module} {message}',
-#             'style': '{',
-#         },
-#         'simple': {
-#             'format': '{levelname} {message}',
-#             'style': '{',
-#         },
-#     },
-#     'handlers': {
-#         'file': {
-#             'level': 'DEBUG',
-#             'class': 'logging.FileHandler',
-#             'filename': os.path.join(LOGGING_DIR, 'django.log'),
-#             'formatter': 'verbose',
-#         },
-#         'console': {
-#             'level': 'DEBUG',
-#             'class': 'logging.StreamHandler',
-#             'formatter': 'simple',
-#         },
-#     },
-#     'root': {
-#         'handlers': ['file', 'console'],
-#         'level': 'INFO',  
-#     },
-# }
-
+os.makedirs(LOGGING_DIR, exist_ok=True)
 
 LOGGING = {
     'version': 1,
@@ -307,6 +211,19 @@ LOGGING = {
             'formatter': 'simple',
         },
     },
+    'loggers': {
+        'django': {
+            'handlers': ['file', 'console'],
+            'level': 'INFO',  # Set level to DEBUG to capture DEBUG, INFO, WARNING, ERROR, and CRITICAL
+            'propagate': True,
+        },
+          'apscheduler': {  # This is the logger used by APScheduler
+            'handlers': ['file'],
+            'level': 'DEBUG', 
+            'propagate': False,
+        },
+    },
+  
    'root': {
         'handlers': ['file', 'console'],
         'level': 'INFO',  
@@ -315,5 +232,5 @@ LOGGING = {
 
 
 # Job store URL for APScheduler
-APScheduler_JOBSTORE_URL = f'postgresql+psycopg2://{os.getenv('DATABASE_USER')}:{os.getenv('DATABASE_PASSWORD')}@{os.getenv('DATABASE_HOST')}/{os.getenv('DATABASE_NAME')}'
-
+APScheduler_JOBSTORE_URL = f"postgresql+psycopg2://{os.getenv('DATABASE_USER')}:{os.getenv('DATABASE_PASSWORD')}@{os.getenv('DATABASE_HOST')}/{os.getenv('DATABASE_NAME')}"
+logging.config.dictConfig(LOGGING)

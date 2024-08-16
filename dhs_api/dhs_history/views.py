@@ -91,9 +91,9 @@ def send_email(feedback_data,history_data):
         #  to=['sheetal.warbhuvan@aeriestechnology.com']
     )
     
-    email.attach('feedback_report.xlsx', buffer_feedback.read(), 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-    email.attach('conversation_history_report.xlsx', buffer_history.read(), 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-    email.send()
+    # email.attach('feedback_report.xlsx', buffer_feedback.read(), 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    # email.attach('conversation_history_report.xlsx', buffer_history.read(), 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    # email.send()
     
 def modify_data(data):
     reslst=[]

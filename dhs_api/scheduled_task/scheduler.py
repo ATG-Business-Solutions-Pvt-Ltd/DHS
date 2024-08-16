@@ -17,11 +17,14 @@ import pytz
 from django.conf import settings
 import os
 import logging.config
+from apscheduler.events import EVENT_JOB_EXECUTED, EVENT_JOB_ERROR,EVENT_JOB_MISSED
+
 import time
 # import environ
 # from decouple import config
 from dotenv import load_dotenv
 logger = logging.getLogger(__name__)
+logger_1 = logging.getLogger('apscheduler')
 scheduler = None  # Initialize scheduler variable
 # def send_weekly_mail():
 #     try:
@@ -151,7 +154,6 @@ def send_mail(start_time, end_time, period):
     try:
         feedbacks = FeedbackModel.objects.filter(created_at__range=(start_time, end_time))
         conversation_history = ConversationHistoryModel.objects.filter(created_at__range=(start_time, end_time))
-
         feedback_data = [{
             'id': feedback.id,
             'user_email': feedback.user_email,
@@ -159,95 +161,117 @@ def send_mail(start_time, end_time, period):
             'reviews': feedback.reviews,
             'created_at': feedback.created_at
         } for feedback in feedbacks]
-
         conversation_data = [{
             'id': conversation.id,
             'user_input': conversation.user_input,
             'bot_response': conversation.bot_response,
             'created_at': conversation.created_at
         } for conversation in conversation_history]
-
+        logger.info(f"Send {period.capitalize()} feedback  and conversation history")
         body = 'Please find attached feedback summary and conversation history report of bot.'
         email = EmailMessage(
             subject=f'{period.capitalize()} feedback summary and conversation history',
             body=body,
             from_email=settings.EMAIL_HOST_USER,
-            to=['feedback.chatbot@deliverhealth.com','sairam.thummala@deliverhealth.com']
+            # to=['feedback.chatbot@deliverhealth.com','sairam.thummala@deliverhealth.com']
+            to=['sheetal.warbhuvan@aeriestechnology.com']
         )
-
         if feedback_data:
+            logger.info(f"Sending feedback ")
             df = pd.DataFrame(feedback_data)
             df['created_at'] = df['created_at'].apply(lambda x: x.replace(tzinfo=None))
             buffer = BytesIO()
             df.to_excel(buffer, index=False, engine='openpyxl')
             buffer.seek(0)
             email.attach(f'{period}_feedback_summary.xlsx', buffer.getvalue(), 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-
+            logger.info(f"{period.capitalize()}-Feedback ---> {feedback_data} ")
         if conversation_data:
+            logger.info(f"Sending Conversation History ")
             df_history = pd.DataFrame(conversation_data)
             df_history['created_at'] = df_history['created_at'].apply(lambda x: x.replace(tzinfo=None))
             history_buffer = BytesIO()
             df_history.to_excel(history_buffer, index=False, engine='openpyxl')
             history_buffer.seek(0)
             email.attach(f'{period}_conversation_history.xlsx', history_buffer.getvalue(), 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+            logger.info(f"{period.capitalize()}-Conversation History ---> {conversation_data} ")
         if not conversation_data and not feedback_data:
+                logger.info(f"No Conversation History and Feedback received from user ")
                 email.body=f"No feedback and conversation history available to send."
-            
+        logger.info(f"Sending an email")
         email.send()
         logger.info(f"{period.capitalize()} email sent successfully")
     except Exception as e:
         logger.error(f"Failed to send {period} email: {str(e)}")
 
 
+
 def send_daily_mail_new():
-    daily_mail_flag=False
     current_time = timezone.now()
     start_time = current_time - timedelta(days=1)
     end_time = current_time
+    logger.info(f"Scheduler -> {start_time} to {end_time}")
     send_mail(start_time, end_time, "daily")
-
 def send_weekly_mail_new():
     today = timezone.now()
     last_week_start = today - timedelta(days=today.weekday() + 7)
     last_week_end = last_week_start + timedelta(days=7)
+    logger.info(f"Scheduler -> {last_week_start} to {last_week_end}")
     send_mail(last_week_start, last_week_end, "weekly")
 
+def job_listener(event):
+    if event.code== EVENT_JOB_EXECUTED:
+        logger_1.info(f'Job {event.job_id} executed successfully at {event.scheduled_run_time}.')
+    elif event.code == EVENT_JOB_ERROR:
+        logger_1.error(f'Job {event.job_id} failed with exception: {event.exception}  at {event.scheduled_run_time}. ')
+    elif event.code == EVENT_JOB_MISSED:
+        logger_1.info(f'Job {event.job_id} was missed. Scheduled at {event.scheduled_run_time}.')
+   
 def start():
     global scheduler
-    if scheduler and scheduler.running:   
+    if scheduler and scheduler.running: 
+        logger_1.info("Scheduler is already running.")  
         print("Scheduler is already running.")
         return
-  
-    scheduler = BackgroundScheduler(timezone=pytz.timezone('Asia/Kolkata'))
+
+    scheduler = BackgroundScheduler()
     jobstores = {
         'default': SQLAlchemyJobStore(url= f'postgresql+psycopg2://{os.getenv('DATABASE_USER')}:{os.getenv('DATABASE_PASSWORD')}@{os.getenv('DATABASE_HOST')}/{os.getenv('DATABASE_NAME')}'
     )
     }
     scheduler.configure(jobstores=jobstores)
-    
+    scheduler.add_listener(job_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR | EVENT_JOB_MISSED)
     start_time = datetime.now() + timedelta(minutes=5)
   
-    scheduler.add_job(
-            send_daily_mail_new,
-            trigger=CronTrigger(hour=5, minute=0),
-            id="send_daily_email_new",
-            max_instances=1,
-            replace_existing=True,
-            misfire_grace_time=3600
-        )
+    # scheduler.add_job(
+    #         send_daily_mail_new,
+    #         trigger=CronTrigger(hour=5, minute=0),
+    #         id="send_daily_email_new",
+    #         max_instances=1,
+    #         replace_existing=True,
+    #         misfire_grace_time=3600
+    #     )
    
-    scheduler.add_job(
-        send_weekly_mail_new,
-        trigger=CronTrigger(day_of_week='mon', hour='6', minute='0'),
-        id='send_weekly_email_new',
-        max_instances=1,
-        replace_existing=True,
-        misfire_grace_time=3600
-    )
+    # scheduler.add_job(
+    #     send_weekly_mail_new,
+    #     trigger=CronTrigger(day_of_week='mon', hour='6', minute='0'),
+    #     id='send_weekly_email_new',
+    #     max_instances=1,
+    #     replace_existing=True,
+    #     misfire_grace_time=3600
+    # )
     
+     # scheduler.add_job(send_daily_mail_new, 'cron', hour=5,minute = 0)
+    scheduler.add_job(send_daily_mail_new,'interval', minutes=7, max_instances=1, misfire_grace_time=300 ,replace_existing=True,id="send_daily_email_new") 
+    scheduler.add_job(send_weekly_mail_new, 'interval',minutes = 11,max_instances=1, misfire_grace_time=300 ,replace_existing=True,id="send_weekly_email_new") 
+
+    # scheduler.add_job(send_daily_mail_new,'cron',hour=5, minute=0, max_instances=1, misfire_grace_time=3600 ,replace_existing=True,id="send_daily_email_new") # Allow up to 60 seconds of grace time)
+    # scheduler.add_job(send_weekly_mail_new, 'cron',hour=6,minute = 0,max_instances=1, misfire_grace_time=3600 ,replace_existing=True,id="send_daily_email_new") # Allow up to 60 seconds of grace time)
     register_events(scheduler)
     scheduler.start()
-    print("Scheduler started!")
-   
+    print("Scheduler started!") 
     time.sleep(2)
-  
+    
+    jobs = scheduler.get_jobs()
+    for job in jobs:
+        logger_1.info(f"Jobs Job ID: {job.id}, Trigger: {job.trigger}")
+        
