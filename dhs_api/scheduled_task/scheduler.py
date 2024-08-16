@@ -235,7 +235,7 @@ def start():
 
     scheduler = BackgroundScheduler()
     jobstores = {
-        'default': SQLAlchemyJobStore(url= f'postgresql+psycopg2://{os.getenv('DATABASE_USER')}:{os.getenv('DATABASE_PASSWORD')}@{os.getenv('DATABASE_HOST')}/{os.getenv('DATABASE_NAME')}'
+        'default': SQLAlchemyJobStore(url= f"postgresql+psycopg2://{os.getenv('DATABASE_USER')}:{os.getenv('DATABASE_PASSWORD')}@{os.getenv('DATABASE_HOST')}/{os.getenv('DATABASE_NAME')}"
     )
     }
     scheduler.configure(jobstores=jobstores)
