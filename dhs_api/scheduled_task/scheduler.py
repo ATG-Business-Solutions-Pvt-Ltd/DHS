@@ -19,6 +19,7 @@ import os
 import logging.config
 from apscheduler.events import EVENT_JOB_EXECUTED, EVENT_JOB_ERROR,EVENT_JOB_MISSED
 
+
 import time
 # import environ
 # from decouple import config
@@ -250,12 +251,11 @@ def start():
     scheduler.configure(jobstores=jobstores)
     scheduler.add_listener(job_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR | EVENT_JOB_MISSED)
     start_time = datetime.now() + timedelta(minutes=5)  
-     # scheduler.add_job(send_daily_mail_new, 'cron', hour=5,minute = 0)
-    scheduler.add_job(send_daily_mail_new,'interval', minutes=7, max_instances=1, misfire_grace_time=300 ,replace_existing=True,id="send_daily_email_new") 
-    scheduler.add_job(send_weekly_mail_new, 'interval',minutes = 11,max_instances=1, misfire_grace_time=300 ,replace_existing=True,id="send_weekly_email_new") 
+    # scheduler.add_job(send_daily_mail_new,'interval', minutes=7, max_instances=1, misfire_grace_time=300 ,replace_existing=True,id="send_daily_email_new") 
+    # scheduler.add_job(send_weekly_mail_new, 'interval',minutes = 11,max_instances=1, misfire_grace_time=300 ,replace_existing=True,id="send_weekly_email_new") 
 
-    # scheduler.add_job(send_daily_mail_new,'cron',hour=7, minute=35, max_instances=1, misfire_grace_time=300 ,replace_existing=True,id="send_daily_email_new") # Allow up to 60 seconds of grace time)
-    # scheduler.add_job(send_weekly_mail_new, 'cron',day_of_week='mon',hour=6,minute = 0,max_instances=1, misfire_grace_time=300 ,replace_existing=True,id="send_daily_email_new") # Allow up to 60 seconds of grace time)
+    scheduler.add_job(send_daily_mail_new,'cron',hour=16, minute=20, max_instances=1, misfire_grace_time=300 ,replace_existing=True,id="send_daily_email_new") # Allow up to 60 seconds of grace time)
+    scheduler.add_job(send_weekly_mail_new, 'cron',day_of_week='fri',hour=16,minute = 40,max_instances=1, misfire_grace_time=300 ,replace_existing=True,id="send_daily_email_new") # Allow up to 60 seconds of grace time)
     register_events(scheduler)
     scheduler.start()
     print("Scheduler started!") 
@@ -264,4 +264,3 @@ def start():
     jobs = scheduler.get_jobs()
     for job in jobs:
         logger_1.info(f"Jobs Job ID: {job.id}, Trigger: {job.trigger}")
-        
