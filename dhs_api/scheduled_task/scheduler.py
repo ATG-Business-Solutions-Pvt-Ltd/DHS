@@ -176,8 +176,8 @@ def send_mail(start_time, end_time, period):
                 subject=f'{period.capitalize()} feedback summary and conversation history',
                 body=body,
                 from_email=settings.EMAIL_HOST_USER,
-                # to=['feedback.chatbot@deliverhealth.com','sairam.thummala@deliverhealth.com']
-                to=['sheetal.warbhuvan@aeriestechnology.com']
+                to=['feedback.chatbot@deliverhealth.com','sairam.thummala@deliverhealth.com']
+                # to=['sheetal.warbhuvan@aeriestechnology.com']
             )
             if feedback_data:
                 logger.info(f"Sending feedback ")
@@ -212,15 +212,14 @@ def send_mail(start_time, end_time, period):
                 time.sleep(wait_time)
             else:
                 logger.error("All retry attempts failed.")
-
-
-
+                
 def send_daily_mail_new():
     current_time = timezone.now()
     start_time = current_time - timedelta(days=1)
     end_time = current_time
     logger.info(f"Scheduler -> {start_time} to {end_time}")
     send_mail(start_time, end_time, "daily")
+    
 def send_weekly_mail_new():
     today = timezone.now()
     last_week_start = today - timedelta(days=today.weekday() + 7)
@@ -230,14 +229,15 @@ def send_weekly_mail_new():
 
 def job_listener(event):
     if event.code== EVENT_JOB_EXECUTED:
-        logger_1.info(f'Job {event.job_id} executed successfully at {event.scheduled_run_time}.')
+        logger_1.info(f'Scheduled Job {event.job_id} executed successfully at {event.scheduled_run_time}.')
     elif event.code == EVENT_JOB_ERROR:
-        logger_1.error(f'Job {event.job_id} failed with exception: {event.exception}  at {event.scheduled_run_time}. ')
+        logger_1.error(f'Scheduled Job {event.job_id} failed with exception: {event.exception}  at {event.scheduled_run_time}. ')
     elif event.code == EVENT_JOB_MISSED:
-        logger_1.info(f'Job {event.job_id} was missed. Scheduled at {event.scheduled_run_time}.')
+        logger_1.info(f'Scheduled Job {event.job_id} was missed. Scheduled at {event.scheduled_run_time}.')
    
 def start():
     global scheduler
+    
     if scheduler and scheduler.running: 
         logger_1.info("Scheduler is already running.")  
         print("Scheduler is already running.")
@@ -251,11 +251,8 @@ def start():
     scheduler.configure(jobstores=jobstores)
     scheduler.add_listener(job_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR | EVENT_JOB_MISSED)
     start_time = datetime.now() + timedelta(minutes=5)  
-    # scheduler.add_job(send_daily_mail_new,'interval', minutes=7, max_instances=1, misfire_grace_time=300 ,replace_existing=True,id="send_daily_email_new") 
-    # scheduler.add_job(send_weekly_mail_new, 'interval',minutes = 11,max_instances=1, misfire_grace_time=300 ,replace_existing=True,id="send_weekly_email_new") 
-
-    scheduler.add_job(send_daily_mail_new,'cron',hour=16, minute=20, max_instances=1, misfire_grace_time=300 ,replace_existing=True,id="send_daily_email_new") # Allow up to 60 seconds of grace time)
-    scheduler.add_job(send_weekly_mail_new, 'cron',day_of_week='fri',hour=16,minute = 40,max_instances=1, misfire_grace_time=300 ,replace_existing=True,id="send_daily_email_new") # Allow up to 60 seconds of grace time)
+    scheduler.add_job(send_daily_mail_new,'cron',hour=5, minute=0, max_instances=1, misfire_grace_time=300 ,replace_existing=True,id="send_daily_email_new") 
+    scheduler.add_job(send_weekly_mail_new, 'cron',day_of_week='mon',hour=6,minute = 0,max_instances=1, misfire_grace_time=300 ,replace_existing=True,id="send_weekly_email_new") 
     register_events(scheduler)
     scheduler.start()
     print("Scheduler started!") 
