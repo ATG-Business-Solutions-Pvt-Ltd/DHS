@@ -39,26 +39,47 @@ class GetFeedback(APIView):
             return Response({'message': f'{count} feedback(s) deleted.'}, status=status.HTTP_204_NO_CONTENT)
         return Response({'error': 'No feedback found for this email'}, status=status.HTTP_404_NOT_FOUND)
     
-class ConversationHistory(APIView):
-    def post(self,request):
-        try:
-            input_data=request.data.get("conversation_history")
-            if isinstance(input_data, list):
-                serializer = ChatHistorySerializer(data=input_data, many=True)
-                if serializer.is_valid():
-                    serializer.save()
-                    return Response(serializer.data, status=status.HTTP_201_CREATED)
-                logger.info(f'Failed to save conversation history{serializer.errors}')
-                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-            else:
-                return Response("Please provide valid input",status=status.HTTP_400_BAD_REQUEST)
-        except Exception as e:
-            return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
-    def get(self,request):
-        chat_history=ConversationHistoryModel.objects.all()
-        serializer=ChatHistorySerializer(chat_history,many=True)
-        return Response(serializer.data)
+# class ConversationHistory(APIView):
+#     def post(self,request):
+#         try:
+#             input_data=request.data.get("conversation_history")
+#             if isinstance(input_data, list):
+#                 serializer = ChatHistorySerializer(data=input_data, many=True)
+#                 if serializer.is_valid():
+#                     serializer.save()
+#                     return Response(serializer.data, status=status.HTTP_201_CREATED)
+#                 logger.info(f'Failed to save conversation history{serializer.errors}')
+#                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#             else:
+#                 return Response("Please provide valid input",status=status.HTTP_400_BAD_REQUEST)
+#         except Exception as e:
+#             return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
+#     def get(self,request):
+#         chat_history=ConversationHistoryModel.objects.all()
+#         serializer=ChatHistorySerializer(chat_history,many=True)
+#         return Response(serializer.data)
     
+class ConversationHistory(APIView):
+    def post(self, request):
+        try:
+            input_data = request.data.get("conversation_history")
+            if isinstance(input_data, list):  # If input is a list of conversations
+                serializer = ChatHistorySerializer(data=input_data, many=True)
+            elif isinstance(input_data, dict):  # If input is a single conversation
+                serializer = ChatHistorySerializer(data=[input_data], many=True)
+            else:
+                return Response("Please provide valid input (list or dict)", status=status.HTTP_400_BAD_REQUEST)
+
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            else:
+                logger.info(f"Failed to save conversation history: {serializer.errors}")
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            logger.error(f"Error in ConversationHistory post: {str(e)}")
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
 class GetConversationHistoryV2(APIView):
     def get(self,request):
         chat_history=ConversationHistoryModel.objects.all()
