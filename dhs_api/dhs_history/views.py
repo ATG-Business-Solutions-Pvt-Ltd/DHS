@@ -79,6 +79,11 @@ class ConversationHistory(APIView):
         except Exception as e:
             logger.error(f"Error in ConversationHistory post: {str(e)}")
             return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+            
+     def get(self,request):
+          chat_history=ConversationHistoryModel.objects.all()
+          serializer=ChatHistorySerializer(chat_history,many=True)
+          return Response(serializer.data)
 
 class GetConversationHistoryV2(APIView):
     def get(self,request):
